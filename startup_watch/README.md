@@ -35,6 +35,10 @@ python startup_watch/startup_watch.py --config startup_watch/config.yaml
 
 CSV will be written to `startup_watch/output/startup_watch_<timestamp>.csv`.
 
+## GitHub Actions (Public Sources Only)
+This repo includes a workflow that runs weekly (Mondays at 9:00 AM PST) and on-demand via manual dispatch.
+It uses `startup_watch/config.github.yaml` with LinkedIn disabled and uploads the CSV as a workflow artifact.
+
 ## Notes
 - LinkedIn scraping is best-effort and depends on page structure. If it fails, run the script with `--linkedin-manual` to parse a saved HTML file exported from your browser.
 - Respect site terms. This tool is intended for your personal research.

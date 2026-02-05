@@ -2,6 +2,7 @@ import argparse
 import csv
 import datetime as dt
 import json
+import os
 import re
 import sys
 from dataclasses import dataclass, asdict
@@ -608,6 +609,7 @@ def main() -> None:
     output_dir = cfg.get("output_dir", "output")
     timestamp = dt.datetime.now().strftime("%Y%m%d_%H%M%S")
     output_path = f"{output_dir}/startup_watch_{timestamp}.csv"
+    os.makedirs(output_dir, exist_ok=True)
 
     categories = cfg.get("categories", [])
     playwright_fallback = bool(cfg.get("playwright_fallback", {}).get("enabled", False))
