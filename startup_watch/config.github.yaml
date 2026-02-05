@@ -1,0 +1,95 @@
+output_dir: "startup_watch/output"
+
+categories:
+  - supply chain
+  - logistics
+  - tms
+  - wms
+  - procurement
+  - warehousing
+  - manufacturing software
+  - distribution
+  - retail tech
+  - returns
+  - recommerce
+  - industrial software
+  - industrial hardware
+  - agtech
+  - farm tech
+
+stages:
+  - pre-seed
+  - seed
+  - series a
+
+linkedin:
+  enabled: false
+  search_urls: []
+  chrome_profile_dir: ""
+  chrome_profile_name: "Default"
+  max_posts_per_search: 0
+
+linkedin_manual:
+  enabled: false
+  html_files: []
+
+playwright_fallback:
+  enabled: true
+
+linkedin_enrichment:
+  enabled: false
+  max_company_pages: 0
+
+yc_directory:
+  enabled: true
+  batch: "W25"
+  categories:
+    - "Industrial"
+    - "AgTech"
+
+startupstream:
+  enabled: true
+  url: "https://startupstream.io"
+  max_items: 200
+
+vc_portfolios:
+  enabled: true
+  pages:
+    - name: "First Round"
+      url: "https://firstround.com/companies/"
+    - name: "Sequoia"
+      url: "https://www.sequoiacap.com/companies/"
+    - name: "a16z"
+      url: "https://a16z.com/portfolio/"
+
+incubators_and_accelerators:
+  enabled: true
+  pages:
+    - name: "MIT Delta V"
+      url: "https://deltav.mit.edu/"
+    - name: "Stanford StartX"
+      url: "https://startx.com/portfolio/"
+    - name: "UC Berkeley SkyDeck"
+      url: "https://skydeck.berkeley.edu/companies/"
+    - name: "Plug and Play Supply Chain"
+      url: "https://www.plugandplaytechcenter.com/verticals/supply-chain/"
+    - name: "Alchemist Accelerator"
+      url: "https://www.alchemistaccelerator.com/portfolio"
+    - name: "SVG Thrive"
+      url: "https://thrive.ag/funds/thrive-acceleration/"
+
+impact_specialized_vcs:
+  enabled: true
+  pages:
+    - name: "Village Capital"
+      url: "https://vilcap.com/portfolio"
+    - name: "S2G Investments"
+      url: "https://s2gventures.com/portfolio/"
+
+crunchbase_free:
+  enabled: false
+  pages: []
+
+filters:
+  require_category_match: true
+  require_stage_match: false

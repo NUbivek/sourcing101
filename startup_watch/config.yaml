@@ -1,0 +1,99 @@
+output_dir: "startup_watch/output"
+
+categories:
+  - supply chain
+  - logistics
+  - tms
+  - wms
+  - procurement
+  - warehousing
+  - manufacturing software
+  - distribution
+  - retail tech
+  - returns
+  - recommerce
+  - industrial software
+  - industrial hardware
+  - agtech
+  - farm tech
+
+stages:
+  - pre-seed
+  - seed
+  - series a
+
+linkedin:
+  enabled: true
+  # Use Posts tab + sort by Latest, then copy the URL here
+  search_urls:
+    - "https://www.linkedin.com/search/results/content/?keywords=(%22Seed%22%20OR%20%22Series%20A%22)%20AND%20(%22Supply%20Chain%22%20OR%20%22Manufacturing%22%20OR%20%22AgTech%22)%20AND%20hiring&origin=GLOBAL_SEARCH_HEADER&sortBy=DATE"
+  # If you want to reuse your logged-in Chrome profile, set these:
+  chrome_profile_dir: "/Users/bivekadhikari/Library/Application Support/Google/Chrome"
+  chrome_profile_name: "Default"
+  max_posts_per_search: 50
+
+linkedin_manual:
+  enabled: false
+  html_files: []
+
+playwright_fallback:
+  enabled: true
+
+linkedin_enrichment:
+  enabled: true
+  max_company_pages: 50
+
+yc_directory:
+  enabled: true
+  batch: "W25"
+  categories:
+    - "Industrial"
+    - "AgTech"
+
+startupstream:
+  enabled: true
+  url: "https://startupstream.io"
+  max_items: 200
+
+vc_portfolios:
+  enabled: true
+  pages:
+    - name: "First Round"
+      url: "https://firstround.com/companies/"
+    - name: "Sequoia"
+      url: "https://www.sequoiacap.com/companies/"
+    - name: "a16z"
+      url: "https://a16z.com/portfolio/"
+
+incubators_and_accelerators:
+  enabled: true
+  pages:
+    - name: "MIT Delta V"
+      url: "https://deltav.mit.edu/"
+    - name: "Stanford StartX"
+      url: "https://startx.com/portfolio/"
+    - name: "UC Berkeley SkyDeck"
+      url: "https://skydeck.berkeley.edu/companies/"
+    - name: "Plug and Play Supply Chain"
+      url: "https://www.plugandplaytechcenter.com/verticals/supply-chain/"
+    - name: "Alchemist Accelerator"
+      url: "https://www.alchemistaccelerator.com/portfolio"
+    - name: "SVG Thrive"
+      url: "https://thrive.ag/funds/thrive-acceleration/"
+
+impact_specialized_vcs:
+  enabled: true
+  pages:
+    - name: "Village Capital"
+      url: "https://vilcap.com/portfolio"
+    - name: "S2G Investments"
+      url: "https://s2gventures.com/portfolio/"
+
+crunchbase_free:
+  enabled: false
+  # Provide any free-access pages you want scanned
+  pages: []
+
+filters:
+  require_category_match: true
+  require_stage_match: false
