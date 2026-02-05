@@ -5,6 +5,7 @@ import json
 import os
 import re
 import sys
+import time
 from dataclasses import dataclass, asdict, fields
 from typing import Dict, Iterable, List, Optional, Tuple
 
@@ -304,19 +305,44 @@ def parse_linkedin_manual(html_files: List[str], categories: List[str]) -> List[
     return results
 
 
-def scrape_linkedin(search_urls: List[str], categories: List[str], chrome_profile_dir: str, chrome_profile_name: str, max_posts: int) -> List[StartupSignal]:
+def scrape_linkedin(
+    search_urls: List[str],
+    categories: List[str],
+    chrome_profile_dir: str,
+    chrome_profile_name: str,
+    max_posts: int,
+    pause_for_login: bool,
+    pause_seconds: int,
+    use_system_chrome: bool,
+    browser_name: str,
+) -> List[StartupSignal]:
     if sync_playwright is None:
         print("Playwright not installed; skipping LinkedIn scraping.", file=sys.stderr)
         return []
 
     results: List[StartupSignal] = []
     with sync_playwright() as p:
-        browser = p.chromium.launch_persistent_context(
+        browser_type = {
+            "chromium": p.chromium,
+            "firefox": p.firefox,
+            "webkit": p.webkit,
+        }.get(browser_name, p.chromium)
+        launch_args = []
+        channel = None
+        if browser_name == "chromium":
+            launch_args = [f"--profile-directory={chrome_profile_name}"] if chrome_profile_dir else []
+            channel = "chrome" if use_system_chrome else None
+        browser = browser_type.launch_persistent_context(
             user_data_dir=chrome_profile_dir or None,
             headless=False,
-            args=[f"--profile-directory={chrome_profile_name}"] if chrome_profile_dir else [],
+            args=launch_args,
+            channel=channel,
         )
         page = browser.new_page()
+        if pause_for_login:
+            page.goto("https://www.linkedin.com", wait_until="domcontentloaded")
+            print("If needed, log into LinkedIn in the opened browser window.")
+            time.sleep(pause_seconds)
 
         for url in search_urls:
             page.goto(url, wait_until="domcontentloaded")
@@ -508,13 +534,36 @@ def scrape_list_page(name: str, url: str, playwright_fallback: bool) -> List[Sta
         return []
     soup = BeautifulSoup(html, "lxml")
     links = soup.select("a")
+    base_match = re.search(r"https?://([^/]+)", url)
+    base_domain = base_match.group(1).lower() if base_match else ""
+    nav_stop = {
+        "home", "about", "blog", "news", "events", "contact", "donate", "team",
+        "careers", "jobs", "apply", "apply now", "newsletter", "press",
+        "privacy", "terms", "linkedin", "twitter", "instagram", "facebook",
+        "youtube", "podcast", "our mission", "guiding principles", "awards",
+        "annual report", "membership", "portfolio", "companies", "programs",
+        "students", "faculty", "research", "partners", "sponsors", "mentors",
+        "login", "sign in", "sign up", "faq", "resources", "support", "events",
+        "newsroom", "media", "directory", "knowledge base"
+    }
     results: List[StartupSignal] = []
     for a in links:
         text = a.get_text(" ", strip=True)
         href = a.get("href") or ""
         if not text or len(text) > 80:
             continue
+        if text.strip().lower() in nav_stop:
+            continue
         if not href or href.startswith("#"):
+            continue
+        # Skip obvious nav/self links unless they look like company pages
+        href_norm = href.split("?")[0]
+        href_domain_match = re.search(r"https?://([^/]+)", href_norm)
+        href_domain = href_domain_match.group(1).lower() if href_domain_match else ""
+        looks_like_company_path = any(x in href_norm.lower() for x in ["/company", "/companies", "/portfolio", "/cohort"])
+        if href_domain and base_domain and href_domain == base_domain and not looks_like_company_path:
+            continue
+        if len(text) < 3:
             continue
         results.append(
             StartupSignal(
@@ -646,6 +695,8 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True)
     ap.add_argument("--linkedin-manual", action="store_true")
+    ap.add_argument("--pause-for-login", action="store_true")
+    ap.add_argument("--pause-seconds", type=int, default=60)
     args = ap.parse_args()
 
     cfg = load_config(args.config)
@@ -669,6 +720,10 @@ def main() -> None:
                 linkedin_cfg.get("chrome_profile_dir", ""),
                 linkedin_cfg.get("chrome_profile_name", "Default"),
                 int(linkedin_cfg.get("max_posts_per_search", 50)),
+                bool(args.pause_for_login),
+                int(args.pause_seconds),
+                bool(linkedin_cfg.get("use_system_chrome", False)),
+                str(linkedin_cfg.get("browser", "chromium")),
             )
         )
 
