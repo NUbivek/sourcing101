@@ -5,7 +5,7 @@ import json
 import os
 import re
 import sys
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, fields
 from typing import Dict, Iterable, List, Optional, Tuple
 
 import requests
@@ -588,11 +588,9 @@ def dedupe(signals: List[StartupSignal]) -> List[StartupSignal]:
 
 
 def write_csv(path: str, signals: List[StartupSignal]) -> None:
-    if not signals:
-        return
-    fields = list(asdict(signals[0]).keys())
+    fieldnames = [f.name for f in fields(StartupSignal)]
     with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
+        w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
         for s in signals:
             w.writerow(asdict(s))
