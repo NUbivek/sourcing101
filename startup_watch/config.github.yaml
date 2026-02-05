@@ -91,5 +91,40 @@ crunchbase_free:
   pages: []
 
 filters:
-  require_category_match: false
-  require_stage_match: false
+  require_category_match: true
+  require_stage_match: true
+  require_early_stage_signal: true
+  early_stage_keywords:
+    - "pre-seed"
+    - "preseed"
+    - "seed"
+    - "series a"
+    - "stealth"
+    - "just launched"
+    - "new"
+    - "cohort"
+    - "batch"
+    - "demo day"
+  early_stage_source_names:
+    - "MIT Delta V"
+    - "Stanford StartX"
+    - "UC Berkeley SkyDeck"
+    - "Plug and Play Supply Chain"
+    - "Alchemist Accelerator"
+    - "SVG Thrive"
+    - "Y Combinator"
+  exclude_companies:
+    - "Google"
+    - "Alphabet"
+    - "Amazon"
+    - "Apple"
+    - "Microsoft"
+    - "Meta"
+    - "Facebook"
+    - "Tesla"
+    - "Nvidia"
+    - "Oracle"
+    - "Salesforce"
+    - "IBM"
+    - "Intel"
+    - "SAP"

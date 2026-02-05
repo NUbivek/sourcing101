@@ -163,6 +163,20 @@ def classify_categories(text: str, categories: List[str]) -> List[str]:
     hits = [c for c in categories if c.lower() in t]
     return list(dict.fromkeys(hits))
 
+def source_category_hints(source_name: str) -> List[str]:
+    mapping = {
+        "Plug and Play Supply Chain": ["supply chain", "logistics"],
+        "SVG Thrive": ["agtech", "farm tech"],
+        "Alchemist Accelerator": ["industrial software", "manufacturing software", "industrial hardware"],
+        "MIT Delta V": ["industrial software", "manufacturing software", "supply chain"],
+        "Stanford StartX": ["industrial software", "manufacturing software", "agtech"],
+        "UC Berkeley SkyDeck": ["industrial software", "manufacturing software", "agtech", "supply chain"],
+        "Village Capital": ["supply chain", "agtech", "industrial software"],
+        "S2G Investments": ["agtech", "industrial software", "supply chain"],
+        "Y Combinator": ["industrial software", "manufacturing software", "agtech", "supply chain"],
+    }
+    return mapping.get(source_name, [])
+
 
 def fetch_html(url: str, playwright_fallback: bool = False) -> Optional[str]:
     try:
@@ -525,22 +539,54 @@ def scrape_list_page(name: str, url: str, playwright_fallback: bool) -> List[Sta
     return results
 
 
-def apply_filters(signals: List[StartupSignal], categories: List[str], require_category: bool, require_stage: bool) -> List[StartupSignal]:
+def apply_filters(
+    signals: List[StartupSignal],
+    categories: List[str],
+    require_category: bool,
+    require_stage: bool,
+    filters_cfg: dict,
+) -> List[StartupSignal]:
     filtered = []
     for s in signals:
         text = " ".join([s.company, s.description, s.signal_text, s.category_tags])
         cats = classify_categories(text, categories)
         stage = s.stage_inferred or infer_stage(text)
         if not s.category_tags:
+            hints = source_category_hints(s.investors or s.source)
+            if hints:
+                s.category_tags = ", ".join(hints)
+                cats = classify_categories(s.category_tags, categories)
+        if not s.category_tags:
             s.category_tags = ", ".join(cats)
         if not s.stage_inferred:
             s.stage_inferred = stage
         if not s.stealth_tag:
             s.stealth_tag = infer_stealth_tag(text)
+        exclude_list = filters_cfg.get("exclude_companies", [])
+        if exclude_list and s.company:
+            lower = s.company.lower()
+            if any(x.lower() in lower for x in exclude_list):
+                continue
         if require_category and not s.category_tags:
             continue
-        if require_stage and not s.stage_inferred:
+        allowed_sources = filters_cfg.get("early_stage_source_names", [])
+        stage_ok = bool(s.stage_inferred or s.stealth_tag)
+        if not stage_ok:
+            if s.source == "yc_directory" or s.investors in allowed_sources:
+                stage_ok = True
+        if require_stage and not stage_ok:
             continue
+        require_early = filters_cfg.get("require_early_stage_signal", False)
+        if require_early:
+            keywords = filters_cfg.get("early_stage_keywords", [])
+            early_text = text.lower()
+            early_hit = any(k.lower() in early_text for k in keywords)
+            if s.source == "yc_directory":
+                early_hit = True
+            if s.investors in allowed_sources:
+                early_hit = True
+            if not early_hit:
+                continue
         filtered.append(s)
     return filtered
 
@@ -676,11 +722,13 @@ def main() -> None:
         for page in cb_cfg.get("pages", []):
             signals.extend(scrape_vc_portfolio_page("crunchbase_free", page, playwright_fallback))
 
+    filters_cfg = cfg.get("filters", {})
     signals = apply_filters(
         signals,
         categories,
-        bool(cfg.get("filters", {}).get("require_category_match", True)),
-        bool(cfg.get("filters", {}).get("require_stage_match", False)),
+        bool(filters_cfg.get("require_category_match", True)),
+        bool(filters_cfg.get("require_stage_match", False)),
+        filters_cfg,
     )
     linkedin_cfg = cfg.get("linkedin", {})
     linkedin_enrich_cfg = cfg.get("linkedin_enrichment", {})
