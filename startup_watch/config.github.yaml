@@ -91,5 +91,5 @@ crunchbase_free:
   pages: []
 
 filters:
-  require_category_match: true
+  require_category_match: false
   require_stage_match: false
