@@ -65,26 +65,52 @@ vc_portfolios:
 incubators_and_accelerators:
   enabled: true
   pages:
-    - name: "MIT Delta V"
-      url: "https://deltav.mit.edu/"
+    - name: "MIT Delta V (2025 Cohort)"
+      url: "https://entrepreneurship.mit.edu/accelerator/2025-delta-v/"
+    - name: "MIT Delta V (Investor Days 2025)"
+      url: "https://entrepreneurship.mit.edu/accelerator/investor-days-2025/"
+    - name: "MIT Pozen Fellowship (2025 Host Companies)"
+      url: "https://entrepreneurship.mit.edu/resources/2025-pozen-fellowship-host-companies/"
     - name: "Stanford StartX"
-      url: "https://startx.com/portfolio/"
+      url: "https://startx.com/companies_med/"
     - name: "UC Berkeley SkyDeck"
-      url: "https://skydeck.berkeley.edu/companies/"
+      url: "https://skydeck.berkeley.edu/portfolio/"
     - name: "Plug and Play Supply Chain"
-      url: "https://www.plugandplaytechcenter.com/verticals/supply-chain/"
+      url: "https://www.businesswire.com/news/home/20190826005090/en/Plug-and-Play-Supply-Chain-Batch-Four-Showcases-16-Startups-in-Silicon-Valley"
     - name: "Alchemist Accelerator"
       url: "https://www.alchemistaccelerator.com/portfolio"
     - name: "SVG Thrive"
-      url: "https://thrive.ag/funds/thrive-acceleration/"
+      url: "https://thriveagrifood.com/svg-ventures-thrive-launches-sixth-academy-cohort/"
+    - name: "SVG Thrive Canada III"
+      url: "https://thriveagrifood.com/svg-ventures-thrive-unveils-canada-iii-accelerator-cohort/"
+    - name: "SVG Thrive VI (2020)"
+      url: "https://thriveagrifood.com/svg-ventures-unveils-sixth-cohort-companies-2020/"
+
+mit_delta_v:
+  enabled: true
+  cohorts:
+    - "https://entrepreneurship.mit.edu/accelerator/2025-delta-v/"
+    - "https://entrepreneurship.mit.edu/accelerator/investor-days-2025/"
+    - "https://entrepreneurship.mit.edu/resources/2025-pozen-fellowship-host-companies/"
+
+skydeck_fund:
+  enabled: true
+  url: "https://skydeck.vc/portfolio"
+
+svg_thrive_cohorts:
+  enabled: true
+  cohorts:
+    - "https://thriveagrifood.com/svg-ventures-thrive-launches-sixth-academy-cohort/"
+    - "https://thriveagrifood.com/svg-ventures-thrive-unveils-canada-iii-accelerator-cohort/"
+    - "https://thriveagrifood.com/svg-ventures-unveils-sixth-cohort-companies-2020/"
 
 impact_specialized_vcs:
   enabled: true
   pages:
     - name: "Village Capital"
-      url: "https://vilcap.com/portfolio"
+      url: "https://vilcap.com/press/why-4-startups-are-solving-critical-problems-in-agtech-and-food-systems"
     - name: "S2G Investments"
-      url: "https://s2gventures.com/portfolio/"
+      url: "https://www.s2ginvestments.com/companies"
 
 crunchbase_free:
   enabled: false
@@ -106,7 +132,13 @@ filters:
     - "batch"
     - "demo day"
   early_stage_source_names:
-    - "MIT Delta V"
+    - "MIT Delta V (2025 Cohort)"
+    - "MIT Delta V (Investor Days 2025)"
+    - "MIT Pozen Fellowship (2025 Host Companies)"
+    - "SVG Thrive"
+    - "SVG Thrive Canada III"
+    - "SVG Thrive VI (2020)"
+    - "SkyDeck Fund"
     - "Stanford StartX"
     - "UC Berkeley SkyDeck"
     - "Plug and Play Supply Chain"
