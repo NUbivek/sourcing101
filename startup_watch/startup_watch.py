@@ -66,6 +66,12 @@ def extract_primary_website(urls: List[str]) -> str:
         return u.split("?")[0]
     return ""
 
+def clean_company_text(text: str) -> str:
+    if not text:
+        return ""
+    first = text.strip().split("\n")[0].strip()
+    return first
+
 def extract_company_from_url(url: str) -> str:
     m = re.search(r"https?://(?:www\.)?([^/]+)", url)
     if not m:
@@ -168,13 +174,21 @@ def source_category_hints(source_name: str) -> List[str]:
     mapping = {
         "Plug and Play Supply Chain": ["supply chain", "logistics"],
         "SVG Thrive": ["agtech", "farm tech"],
+        "SVG THRIVE": ["agtech", "farm tech"],
+        "SVG Thrive Canada III": ["agtech", "farm tech"],
+        "SVG Thrive VI (2020)": ["agtech", "farm tech"],
         "Alchemist Accelerator": ["industrial software", "manufacturing software", "industrial hardware"],
+        "MIT delta v": ["industrial software", "manufacturing software", "supply chain"],
         "MIT Delta V": ["industrial software", "manufacturing software", "supply chain"],
+        "MIT Delta V (2025 Cohort)": ["industrial software", "manufacturing software", "supply chain"],
+        "MIT Delta V (Investor Days 2025)": ["industrial software", "manufacturing software", "supply chain"],
+        "MIT Pozen Fellowship (2025 Host Companies)": ["industrial software", "manufacturing software", "supply chain"],
         "Stanford StartX": ["industrial software", "manufacturing software", "agtech"],
         "UC Berkeley SkyDeck": ["industrial software", "manufacturing software", "agtech", "supply chain"],
         "Village Capital": ["supply chain", "agtech", "industrial software"],
         "S2G Investments": ["agtech", "industrial software", "supply chain"],
         "Y Combinator": ["industrial software", "manufacturing software", "agtech", "supply chain"],
+        "SkyDeck Fund": ["industrial software", "manufacturing software", "agtech", "supply chain"],
     }
     return mapping.get(source_name, [])
 
@@ -534,6 +548,7 @@ def scrape_list_page(name: str, url: str, playwright_fallback: bool) -> List[Sta
         return []
     soup = BeautifulSoup(html, "lxml")
     links = soup.select("a")
+    list_items = [li.get_text(" ", strip=True) for li in soup.select("li")]
     base_match = re.search(r"https?://([^/]+)", url)
     base_domain = base_match.group(1).lower() if base_match else ""
     nav_stop = {
@@ -547,27 +562,16 @@ def scrape_list_page(name: str, url: str, playwright_fallback: bool) -> List[Sta
         "newsroom", "media", "directory", "knowledge base"
     }
     results: List[StartupSignal] = []
-    for a in links:
-        text = a.get_text(" ", strip=True)
-        href = a.get("href") or ""
+    def add_company(text: str, href: str) -> None:
         if not text or len(text) > 80:
-            continue
+            return
         if text.strip().lower() in nav_stop:
-            continue
-        if not href or href.startswith("#"):
-            continue
-        # Skip obvious nav/self links unless they look like company pages
-        href_norm = href.split("?")[0]
-        href_domain_match = re.search(r"https?://([^/]+)", href_norm)
-        href_domain = href_domain_match.group(1).lower() if href_domain_match else ""
-        looks_like_company_path = any(x in href_norm.lower() for x in ["/company", "/companies", "/portfolio", "/cohort"])
-        if href_domain and base_domain and href_domain == base_domain and not looks_like_company_path:
-            continue
+            return
         if len(text) < 3:
-            continue
+            return
         results.append(
             StartupSignal(
-                company=text,
+                company=clean_company_text(text),
                 website="",
                 linkedin_url="",
                 description="",
@@ -585,6 +589,253 @@ def scrape_list_page(name: str, url: str, playwright_fallback: bool) -> List[Sta
                 date_captured=now_utc_iso(),
             )
         )
+
+    # Prefer list items (cohort/company lists)
+    for text in list_items:
+        add_company(text, "")
+
+    # Fallback to anchor text for pages that link out to company sites
+    for a in links:
+        text = a.get_text(" ", strip=True)
+        href = a.get("href") or ""
+        if not href or href.startswith("#"):
+            continue
+        href_norm = href.split("?")[0]
+        href_domain_match = re.search(r"https?://([^/]+)", href_norm)
+        href_domain = href_domain_match.group(1).lower() if href_domain_match else ""
+        looks_like_company_path = any(x in href_norm.lower() for x in ["/company", "/companies", "/portfolio", "/cohort"])
+        if href_domain and base_domain and href_domain == base_domain and not looks_like_company_path:
+            continue
+        add_company(text, href)
+    return results
+
+
+def scrape_s2g_companies(url: str, playwright_fallback: bool, min_year: int) -> List[StartupSignal]:
+    html = fetch_html(url, playwright_fallback)
+    if not html:
+        return []
+    soup = BeautifulSoup(html, "lxml")
+    results: List[StartupSignal] = []
+
+    # S2G companies list uses heading links
+    links = soup.select("h2 a, h3 a")
+    company_links = []
+    for a in links:
+        name = a.get_text(" ", strip=True)
+        href = a.get("href") or ""
+        if not name or not href:
+            continue
+        if not href.startswith("http"):
+            href = "https://www.s2ginvestments.com" + href
+        company_links.append((name, href))
+
+    for name, href in company_links:
+        founded = ""
+        desc = ""
+        detail = fetch_html(href, playwright_fallback)
+        if detail:
+            detail_text = BeautifulSoup(detail, "lxml").get_text(" ", strip=True)
+            m = re.search(r"Founded\\s*(\\d{4})", detail_text, re.I)
+            if m:
+                founded = m.group(1)
+            if not desc:
+                meta = BeautifulSoup(detail, "lxml").find("meta", property="og:description")
+                if meta and meta.get("content"):
+                    desc = meta["content"].strip()
+        if founded:
+            try:
+                if int(founded) < min_year:
+                    continue
+            except ValueError:
+                pass
+        results.append(
+            StartupSignal(
+                company=name,
+                website="",
+                linkedin_url="",
+                description=desc,
+                hq="",
+                headcount="",
+                funding_amount="",
+                last_round_date="",
+                investors="S2G Investments",
+                stage_inferred="",
+                category_tags="",
+                stealth_tag="",
+                source="s2g_companies",
+                source_url=href,
+                signal_text=desc[:800] if desc else name,
+                date_captured=now_utc_iso(),
+            )
+        )
+
+    return results
+
+
+def scrape_skydeck_portfolio_js(url: str) -> List[StartupSignal]:
+    if sync_playwright is None:
+        return []
+    results: List[StartupSignal] = []
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto(url, wait_until="domcontentloaded")
+        page.wait_for_timeout(3000)
+        texts = page.evaluate(
+            \"\"\"\n() => {\n  const sels = [\n    '[data-company]', '[data-name]', '[data-title]',\n    'a[href*=\"/company\"]', 'a[href*=\"/companies\"]', 'a[href*=\"/portfolio\"]',\n    'div[class*=\"company\"]', 'div[class*=\"portfolio\"]', 'div[class*=\"card\"]',\n    'li'\n  ];\n  const out = new Set();\n  sels.forEach(sel => {\n    document.querySelectorAll(sel).forEach(el => {\n      const t = (el.getAttribute('data-company') || el.getAttribute('data-name') || el.getAttribute('data-title') || el.innerText || '').trim();\n      if (t) out.add(t);\n    });\n  });\n  return Array.from(out);\n}\n\"\"\"
+        )
+        browser.close()
+    nav_stop = {
+        "home","about","blog","news","events","contact","donate","team","careers","jobs","apply","portfolio",
+        "companies","programs","students","faculty","research","partners","sponsors","mentors","login","sign in",
+        "sign up","faq","resources","support","media","directory","press","privacy","terms","linkedin","twitter",
+        "instagram","facebook","youtube"
+    }
+    for t in texts:
+        name = clean_company_text(t)
+        low = name.lower()
+        if not name or len(name) < 3 or len(name) > 80:
+            continue
+        if low in nav_stop:
+            continue
+        if "batch" in low or "cohort" in low:
+            continue
+        results.append(
+            StartupSignal(
+                company=name,
+                website="",
+                linkedin_url="",
+                description="",
+                hq="",
+                headcount="",
+                funding_amount="",
+                last_round_date="",
+                investors="UC Berkeley SkyDeck",
+                stage_inferred="",
+                category_tags="",
+                stealth_tag="",
+                source="skydeck_portfolio_js",
+                source_url=url,
+                signal_text=name,
+                date_captured=now_utc_iso(),
+            )
+        )
+    return results
+
+
+def scrape_mit_delta_v(url: str, playwright_fallback: bool) -> List[StartupSignal]:
+    html = fetch_html(url, playwright_fallback)
+    if not html:
+        return []
+    soup = BeautifulSoup(html, "lxml")
+    results: List[StartupSignal] = []
+    stop = {
+        "our 2025 teams", "our teams", "delta v", "about", "contact", "team", "partners",
+        "apply", "program", "mentors", "supporters", "entrepreneurship", "mit", "accelerator"
+    }
+    for header in soup.find_all(["h1", "h2", "h3", "h4"]):
+        name = header.get_text(" ", strip=True)
+        if not name or len(name) > 60:
+            continue
+        if name.lower() in stop:
+            continue
+        # find a nearby website link
+        website = ""
+        for a in header.find_all_next("a", limit=3):
+            href = (a.get("href") or "").strip()
+            if href.startswith("http") and "mit.edu" not in href:
+                website = href.split("?")[0]
+                break
+        results.append(
+            StartupSignal(
+                company=name,
+                website=website,
+                linkedin_url="",
+                description="",
+                hq="",
+                headcount="",
+                funding_amount="",
+                last_round_date="",
+                investors="MIT delta v",
+                stage_inferred="pre-seed",
+                category_tags="",
+                stealth_tag="",
+                source="mit_delta_v",
+                source_url=url,
+                signal_text=name,
+                date_captured=now_utc_iso(),
+            )
+        )
+    return results
+
+
+def scrape_svg_thrive_cohort(url: str, playwright_fallback: bool) -> List[StartupSignal]:
+    html = fetch_html(url, playwright_fallback)
+    if not html:
+        return []
+    soup = BeautifulSoup(html, "lxml")
+    results: List[StartupSignal] = []
+    for li in soup.find_all("li"):
+        text = li.get_text(" ", strip=True)
+        if not text or len(text) > 160:
+            continue
+        # Prefer items that look like "Company – description"
+        if " - " in text or " – " in text or " — " in text:
+            name = re.split(r"\s[-–—]\s", text, maxsplit=1)[0].strip()
+            if 2 <= len(name) <= 60:
+                results.append(
+                    StartupSignal(
+                        company=name,
+                        website="",
+                        linkedin_url="",
+                        description="",
+                        hq="",
+                        headcount="",
+                        funding_amount="",
+                        last_round_date="",
+                        investors="SVG THRIVE",
+                        stage_inferred="seed",
+                        category_tags="",
+                        stealth_tag="",
+                        source="svg_thrive",
+                        source_url=url,
+                        signal_text=text[:800],
+                        date_captured=now_utc_iso(),
+                    )
+                )
+    return results
+
+
+def scrape_skydeck_fund_portfolio(url: str, playwright_fallback: bool) -> List[StartupSignal]:
+    html = fetch_html(url, playwright_fallback)
+    if not html:
+        return []
+    text = BeautifulSoup(html, "lxml").get_text(" ", strip=True)
+    results: List[StartupSignal] = []
+    pattern = re.compile(r"([A-Z][A-Za-z0-9&'\\-\\. ]{2,})\\s\\|\\s(?:Spring|Summer|Fall|Winter)\\s\\d{4}")
+    for match in pattern.findall(text):
+        name = match.strip()
+        if 2 <= len(name) <= 60:
+            results.append(
+                StartupSignal(
+                    company=name,
+                    website="",
+                    linkedin_url="",
+                    description="",
+                    hq="",
+                    headcount="",
+                    funding_amount="",
+                    last_round_date="",
+                    investors="SkyDeck Fund",
+                    stage_inferred="seed",
+                    category_tags="",
+                    stealth_tag="",
+                    source="skydeck_fund",
+                    source_url=url,
+                    signal_text=name,
+                    date_captured=now_utc_iso(),
+                )
+            )
     return results
 
 
@@ -767,10 +1018,38 @@ def main() -> None:
         for page in inc_cfg.get("pages", []):
             signals.extend(scrape_list_page(page.get("name", ""), page.get("url", ""), playwright_fallback))
 
+    mdv_cfg = cfg.get("mit_delta_v", {})
+    if mdv_cfg.get("enabled"):
+        for url in mdv_cfg.get("cohorts", []):
+            signals.extend(scrape_mit_delta_v(url, playwright_fallback))
+
+    sky_cfg = cfg.get("skydeck_fund", {})
+    if sky_cfg.get("enabled"):
+        signals.extend(scrape_skydeck_fund_portfolio(sky_cfg.get("url", ""), playwright_fallback))
+
+    thrive_cfg = cfg.get("svg_thrive_cohorts", {})
+    if thrive_cfg.get("enabled"):
+        for url in thrive_cfg.get("cohorts", []):
+            signals.extend(scrape_svg_thrive_cohort(url, playwright_fallback))
+
     impact_cfg = cfg.get("impact_specialized_vcs", {})
     if impact_cfg.get("enabled"):
         for page in impact_cfg.get("pages", []):
             signals.extend(scrape_list_page(page.get("name", ""), page.get("url", ""), playwright_fallback))
+
+    s2g_cfg = cfg.get("s2g_companies", {})
+    if s2g_cfg.get("enabled"):
+        signals.extend(
+            scrape_s2g_companies(
+                s2g_cfg.get("url", "https://www.s2ginvestments.com/companies"),
+                playwright_fallback,
+                int(s2g_cfg.get("min_founded_year", 2018)),
+            )
+        )
+
+    skydeck_js_cfg = cfg.get("skydeck_portfolio_js", {})
+    if skydeck_js_cfg.get("enabled"):
+        signals.extend(scrape_skydeck_portfolio_js(skydeck_js_cfg.get("url", "")))
 
     cb_cfg = cfg.get("crunchbase_free", {})
     if cb_cfg.get("enabled"):
