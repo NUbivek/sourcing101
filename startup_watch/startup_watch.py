@@ -66,6 +66,12 @@ def extract_primary_website(urls: List[str]) -> str:
         return u.split("?")[0]
     return ""
 
+def clean_company_text(text: str) -> str:
+    if not text:
+        return ""
+    first = text.strip().split("\n")[0].strip()
+    return first
+
 def extract_company_from_url(url: str) -> str:
     m = re.search(r"https?://(?:www\.)?([^/]+)", url)
     if not m:
@@ -565,7 +571,7 @@ def scrape_list_page(name: str, url: str, playwright_fallback: bool) -> List[Sta
             return
         results.append(
             StartupSignal(
-                company=text,
+                company=clean_company_text(text),
                 website="",
                 linkedin_url="",
                 description="",
@@ -601,6 +607,119 @@ def scrape_list_page(name: str, url: str, playwright_fallback: bool) -> List[Sta
         if href_domain and base_domain and href_domain == base_domain and not looks_like_company_path:
             continue
         add_company(text, href)
+    return results
+
+
+def scrape_s2g_companies(url: str, playwright_fallback: bool, min_year: int) -> List[StartupSignal]:
+    html = fetch_html(url, playwright_fallback)
+    if not html:
+        return []
+    soup = BeautifulSoup(html, "lxml")
+    results: List[StartupSignal] = []
+
+    # S2G companies list uses heading links
+    links = soup.select("h2 a, h3 a")
+    company_links = []
+    for a in links:
+        name = a.get_text(" ", strip=True)
+        href = a.get("href") or ""
+        if not name or not href:
+            continue
+        if not href.startswith("http"):
+            href = "https://www.s2ginvestments.com" + href
+        company_links.append((name, href))
+
+    for name, href in company_links:
+        founded = ""
+        desc = ""
+        detail = fetch_html(href, playwright_fallback)
+        if detail:
+            detail_text = BeautifulSoup(detail, "lxml").get_text(" ", strip=True)
+            m = re.search(r"Founded\\s*(\\d{4})", detail_text, re.I)
+            if m:
+                founded = m.group(1)
+            if not desc:
+                meta = BeautifulSoup(detail, "lxml").find("meta", property="og:description")
+                if meta and meta.get("content"):
+                    desc = meta["content"].strip()
+        if founded:
+            try:
+                if int(founded) < min_year:
+                    continue
+            except ValueError:
+                pass
+        results.append(
+            StartupSignal(
+                company=name,
+                website="",
+                linkedin_url="",
+                description=desc,
+                hq="",
+                headcount="",
+                funding_amount="",
+                last_round_date="",
+                investors="S2G Investments",
+                stage_inferred="",
+                category_tags="",
+                stealth_tag="",
+                source="s2g_companies",
+                source_url=href,
+                signal_text=desc[:800] if desc else name,
+                date_captured=now_utc_iso(),
+            )
+        )
+
+    return results
+
+
+def scrape_skydeck_portfolio_js(url: str) -> List[StartupSignal]:
+    if sync_playwright is None:
+        return []
+    results: List[StartupSignal] = []
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto(url, wait_until="domcontentloaded")
+        page.wait_for_timeout(3000)
+        texts = page.evaluate(
+            \"\"\"\n() => {\n  const sels = [\n    '[data-company]', '[data-name]', '[data-title]',\n    'a[href*=\"/company\"]', 'a[href*=\"/companies\"]', 'a[href*=\"/portfolio\"]',\n    'div[class*=\"company\"]', 'div[class*=\"portfolio\"]', 'div[class*=\"card\"]',\n    'li'\n  ];\n  const out = new Set();\n  sels.forEach(sel => {\n    document.querySelectorAll(sel).forEach(el => {\n      const t = (el.getAttribute('data-company') || el.getAttribute('data-name') || el.getAttribute('data-title') || el.innerText || '').trim();\n      if (t) out.add(t);\n    });\n  });\n  return Array.from(out);\n}\n\"\"\"
+        )
+        browser.close()
+    nav_stop = {
+        "home","about","blog","news","events","contact","donate","team","careers","jobs","apply","portfolio",
+        "companies","programs","students","faculty","research","partners","sponsors","mentors","login","sign in",
+        "sign up","faq","resources","support","media","directory","press","privacy","terms","linkedin","twitter",
+        "instagram","facebook","youtube"
+    }
+    for t in texts:
+        name = clean_company_text(t)
+        low = name.lower()
+        if not name or len(name) < 3 or len(name) > 80:
+            continue
+        if low in nav_stop:
+            continue
+        if "batch" in low or "cohort" in low:
+            continue
+        results.append(
+            StartupSignal(
+                company=name,
+                website="",
+                linkedin_url="",
+                description="",
+                hq="",
+                headcount="",
+                funding_amount="",
+                last_round_date="",
+                investors="UC Berkeley SkyDeck",
+                stage_inferred="",
+                category_tags="",
+                stealth_tag="",
+                source="skydeck_portfolio_js",
+                source_url=url,
+                signal_text=name,
+                date_captured=now_utc_iso(),
+            )
+        )
     return results
 
 
@@ -917,6 +1036,20 @@ def main() -> None:
     if impact_cfg.get("enabled"):
         for page in impact_cfg.get("pages", []):
             signals.extend(scrape_list_page(page.get("name", ""), page.get("url", ""), playwright_fallback))
+
+    s2g_cfg = cfg.get("s2g_companies", {})
+    if s2g_cfg.get("enabled"):
+        signals.extend(
+            scrape_s2g_companies(
+                s2g_cfg.get("url", "https://www.s2ginvestments.com/companies"),
+                playwright_fallback,
+                int(s2g_cfg.get("min_founded_year", 2018)),
+            )
+        )
+
+    skydeck_js_cfg = cfg.get("skydeck_portfolio_js", {})
+    if skydeck_js_cfg.get("enabled"):
+        signals.extend(scrape_skydeck_portfolio_js(skydeck_js_cfg.get("url", "")))
 
     cb_cfg = cfg.get("crunchbase_free", {})
     if cb_cfg.get("enabled"):

@@ -102,6 +102,15 @@ skydeck_fund:
   enabled: true
   url: "https://skydeck.vc/portfolio"
 
+skydeck_portfolio_js:
+  enabled: true
+  url: "https://skydeck.berkeley.edu/portfolio/"
+
+s2g_companies:
+  enabled: true
+  url: "https://www.s2ginvestments.com/companies"
+  min_founded_year: 2018
+
 svg_thrive_cohorts:
   enabled: true
   cohorts:
