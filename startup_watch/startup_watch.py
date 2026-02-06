@@ -682,7 +682,24 @@ def scrape_skydeck_portfolio_js(url: str) -> List[StartupSignal]:
         page.goto(url, wait_until="domcontentloaded")
         page.wait_for_timeout(3000)
         texts = page.evaluate(
-            \"\"\"\n() => {\n  const sels = [\n    '[data-company]', '[data-name]', '[data-title]',\n    'a[href*=\"/company\"]', 'a[href*=\"/companies\"]', 'a[href*=\"/portfolio\"]',\n    'div[class*=\"company\"]', 'div[class*=\"portfolio\"]', 'div[class*=\"card\"]',\n    'li'\n  ];\n  const out = new Set();\n  sels.forEach(sel => {\n    document.querySelectorAll(sel).forEach(el => {\n      const t = (el.getAttribute('data-company') || el.getAttribute('data-name') || el.getAttribute('data-title') || el.innerText || '').trim();\n      if (t) out.add(t);\n    });\n  });\n  return Array.from(out);\n}\n\"\"\"
+            """
+() => {
+  const sels = [
+    '[data-company]', '[data-name]', '[data-title]',
+    'a[href*="/company"]', 'a[href*="/companies"]', 'a[href*="/portfolio"]',
+    'div[class*="company"]', 'div[class*="portfolio"]', 'div[class*="card"]',
+    'li'
+  ];
+  const out = new Set();
+  sels.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      const t = (el.getAttribute('data-company') || el.getAttribute('data-name') || el.getAttribute('data-title') || el.innerText || '').trim();
+      if (t) out.add(t);
+    });
+  });
+  return Array.from(out);
+}
+"""
         )
         browser.close()
     nav_stop = {
