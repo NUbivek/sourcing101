@@ -228,6 +228,18 @@ s2g_companies_adapter:
   enabled: true
   url: "https://www.s2ginvestments.com/companies"
 
+cornell_tech_adapter:
+  enabled: true
+  url: "https://tech.cornell.edu/startups/"
+
+uw_comotion_adapter:
+  enabled: true
+  url: "https://comotion.uw.edu/startups/"
+
+atdc_adapter:
+  enabled: true
+  url: "https://atdc.org/portfolio/"
+
 techcrunch_funding_adapter:
   enabled: true
   url: "https://techcrunch.com/category/funding/feed/"

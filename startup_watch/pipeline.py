@@ -10,7 +10,9 @@ from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
 from startup_watch.adapters.agfunder_pod import AgfunderPodAdapter
 from startup_watch.adapters.agweb import AgwebAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
+from startup_watch.adapters.atdc import AtdcAdapter
 from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
+from startup_watch.adapters.cornell_tech import CornellTechAdapter
 from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
@@ -39,6 +41,7 @@ from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
 from startup_watch.adapters.therobotreport import TherobotreportAdapter
 from startup_watch.adapters.wellfound import WellfoundAdapter
 from startup_watch.adapters.venturebeat_ai import VenturebeatAiAdapter
+from startup_watch.adapters.uw_comotion import UwComotionAdapter
 from startup_watch.adapters.yc import YCombinatorAdapter
 from startup_watch.dedup import deduplicate_signals
 from startup_watch.enrichment import enrich_batch
@@ -62,6 +65,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         MitDeltavAdapter(config.get("mit_deltav_adapter", {})),
         StanfordStartxAdapter(config.get("stanford_startx_adapter", {})),
         BerkeleySkydeckAdapter(config.get("berkeley_skydeck_adapter", {})),
+        CornellTechAdapter(config.get("cornell_tech_adapter", {})),
+        UwComotionAdapter(config.get("uw_comotion_adapter", {})),
+        AtdcAdapter(config.get("atdc_adapter", {})),
         AlchemistAdapter(config.get("alchemist_adapter", {})),
         PlugandplayScAdapter(config.get("plugandplay_sc_adapter", {})),
         ThriveAgtechAdapter(config.get("thrive_agtech_adapter", {})),
