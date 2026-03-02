@@ -263,3 +263,15 @@ therobotreport_adapter:
 agdaily_adapter:
   enabled: true
   url: "https://www.agdaily.com/feed/"
+
+manufacturing_net_adapter:
+  enabled: true
+  url: "https://www.manufacturing.net/rss"
+
+venturebeat_ai_adapter:
+  enabled: true
+  url: "https://venturebeat.com/category/ai/feed/"
+
+agfunder_pod_adapter:
+  enabled: true
+  url: "https://agfundernews.com/feed"

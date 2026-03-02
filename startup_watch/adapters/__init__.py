@@ -1,3 +1,6 @@
+from startup_watch.adapters.venturebeat_ai import VenturebeatAiAdapter
+from startup_watch.adapters.manufacturing_net import ManufacturingNetAdapter
+from startup_watch.adapters.agfunder_pod import AgfunderPodAdapter
 from startup_watch.adapters.agdaily import AgdailyAdapter
 from startup_watch.adapters.a16z import A16zAdapter
 from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
@@ -25,6 +28,7 @@ from startup_watch.adapters.yc import YCombinatorAdapter
 
 __all__ = [
     "AgdailyAdapter",
+    "AgfunderPodAdapter",
     "YCombinatorAdapter",
     "StartupStreamAdapter",
     "LinkedInAdapter",
@@ -39,6 +43,7 @@ __all__ = [
     "SequoiaAdapter",
     "BessemerAdapter",
     "SupplychaindiveAdapter",
+    "VenturebeatAiAdapter",
     "TechcrunchFundingAdapter",
     "AgfunderNewsAdapter",
     "FreightwavesAdapter",
@@ -48,4 +53,5 @@ __all__ = [
     "SpendmattersAdapter",
     "SmartIndustryAdapter",
     "IotAnalyticsAdapter",
+    "ManufacturingNetAdapter",
 ]
