@@ -245,3 +245,15 @@ smart_industry_adapter:
 iot_analytics_adapter:
   enabled: true
   url: "https://iot-analytics.com/feed/"
+
+supplychaindive_adapter:
+  enabled: true
+  url: "https://www.supplychaindive.com/feeds/news/"
+
+therobotreport_adapter:
+  enabled: true
+  url: "https://www.therobotreport.com/feed/"
+
+agdaily_adapter:
+  enabled: true
+  url: "https://www.agdaily.com/feed/"

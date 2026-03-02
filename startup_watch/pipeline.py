@@ -5,10 +5,12 @@ import os
 import yaml
 
 from startup_watch.adapters.a16z import A16zAdapter
+from startup_watch.adapters.agdaily import AgdailyAdapter
 from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
 from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
 from startup_watch.adapters.bessemer import BessemerAdapter
+from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.linkedin import LinkedInAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
@@ -23,6 +25,7 @@ from startup_watch.adapters.smart_industry import SmartIndustryAdapter
 from startup_watch.adapters.spendmatters import SpendmattersAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
 from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
+from startup_watch.adapters.therobotreport import TherobotreportAdapter
 from startup_watch.adapters.wellfound import WellfoundAdapter
 from startup_watch.adapters.yc import YCombinatorAdapter
 from startup_watch.dedup import deduplicate_signals
@@ -41,6 +44,7 @@ def collect_signals(config: dict) -> list[StartupSignal]:
     logger = get_logger()
     adapters = [
         YCombinatorAdapter(config.get("yc_directory", {})),
+        AgdailyAdapter(config.get("agdaily_adapter", {})),
         StartupStreamAdapter(config.get("startupstream", {})),
         LinkedInAdapter(config.get("linkedin", {})),
         MitDeltavAdapter(config.get("mit_deltav_adapter", {})),
@@ -61,6 +65,8 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         SpendmattersAdapter(config.get("spendmatters_adapter", {})),
         SmartIndustryAdapter(config.get("smart_industry_adapter", {})),
         IotAnalyticsAdapter(config.get("iot_analytics_adapter", {})),
+        SupplychaindiveAdapter(config.get("supplychaindive_adapter", {})),
+        TherobotreportAdapter(config.get("therobotreport_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:

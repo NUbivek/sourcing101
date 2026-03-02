@@ -1,8 +1,10 @@
+from startup_watch.adapters.agdaily import AgdailyAdapter
 from startup_watch.adapters.a16z import A16zAdapter
 from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
 from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
 from startup_watch.adapters.bessemer import BessemerAdapter
+from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.linkedin import LinkedInAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
@@ -17,10 +19,12 @@ from startup_watch.adapters.smart_industry import SmartIndustryAdapter
 from startup_watch.adapters.spendmatters import SpendmattersAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
 from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
+from startup_watch.adapters.therobotreport import TherobotreportAdapter
 from startup_watch.adapters.wellfound import WellfoundAdapter
 from startup_watch.adapters.yc import YCombinatorAdapter
 
 __all__ = [
+    "AgdailyAdapter",
     "YCombinatorAdapter",
     "StartupStreamAdapter",
     "LinkedInAdapter",
@@ -30,9 +34,11 @@ __all__ = [
     "AlchemistAdapter",
     "PlugandplayScAdapter",
     "ThriveAgtechAdapter",
+    "TherobotreportAdapter",
     "A16zAdapter",
     "SequoiaAdapter",
     "BessemerAdapter",
+    "SupplychaindiveAdapter",
     "TechcrunchFundingAdapter",
     "AgfunderNewsAdapter",
     "FreightwavesAdapter",
