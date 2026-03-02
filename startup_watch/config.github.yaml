@@ -209,3 +209,15 @@ sequoia_adapter:
 bessemer_adapter:
   enabled: true
   url: "https://www.bvp.com/portfolio"
+
+techcrunch_funding_adapter:
+  enabled: true
+  url: "https://techcrunch.com/category/funding/feed/"
+
+agfunder_news_adapter:
+  enabled: true
+  url: "https://agfundernews.com/feed"
+
+freightwaves_adapter:
+  enabled: true
+  url: "https://www.freightwaves.com/news/feed"
