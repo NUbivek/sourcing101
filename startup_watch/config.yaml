@@ -203,3 +203,15 @@ thrive_agtech_adapter:
   urls:
     - "https://thriveagrifood.com/svg-ventures-thrive-launches-sixth-academy-cohort/"
     - "https://thriveagrifood.com/svg-ventures-thrive-unveils-canada-iii-accelerator-cohort/"
+
+a16z_adapter:
+  enabled: true
+  url: "https://a16z.com/portfolio/"
+
+sequoia_adapter:
+  enabled: true
+  url: "https://www.sequoiacap.com/companies/"
+
+bessemer_adapter:
+  enabled: true
+  url: "https://www.bvp.com/portfolio"

@@ -1,8 +1,11 @@
+from startup_watch.adapters.a16z import A16zAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
 from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
+from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.linkedin import LinkedInAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
+from startup_watch.adapters.sequoia import SequoiaAdapter
 from startup_watch.adapters.stanford_startx import StanfordStartxAdapter
 from startup_watch.adapters.startupstream import StartupStreamAdapter
 from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
@@ -18,4 +21,7 @@ __all__ = [
     "AlchemistAdapter",
     "PlugandplayScAdapter",
     "ThriveAgtechAdapter",
+    "A16zAdapter",
+    "SequoiaAdapter",
+    "BessemerAdapter",
 ]
