@@ -1,34 +1,70 @@
 # SOURCING101 CUSTOM COMMANDS
+Argument-based commands for OpenCode + Codex
 
-Argument-based commands for OpenCode + Codex.
+## /src
+Build/manage one adapter.
+- `--new <id> "<name>" <url> [--method <rss|html|playwright|api|hn|reddit>] [--auth] [--tier <1-7>]`
+- `--test <id>`
+- `--list [--tier <1-7>] [--auth-only] [--broken]`
+- `--status <id>`
 
-## Commands
-- /src — Build/manage one adapter (`--new --test --list --status`)
-- /batch — Build adapters in sequence (`--tier --list --resume --dry-run --limit --from`)
-- /simplify — Refactor without behavior changes (`--file --module --adapter --target`)
-- /enrich — Add enrichment function (`--field --source --test`)
-- /run — Execute pipeline (`--config --source --dry-run --verbose`)
-- /lsp — Configure/check/fix pyright (`--enable --strict --check --file --fix`)
-- /fix — Fix adapter/test/CI (`--adapter --test --ci --reason`)
-- /check — Read-only quality audit (`--full --adapter`)
-- /stage — Run GSD lifecycle (`--plan --execute --verify --status --next`)
+## /batch
+Build multiple adapters in sequence.
+- `--tier <1..7> [--limit <N>] [--dry-run] [--from <id>]`
+- `--list <id1> <id2> ...`
+- `--resume`
 
-## Quick Reference
-| Command | Flags | Use for |
-|---------|-------|---------|
-| /src | --new --test --list --status | Build or inspect a single adapter |
-| /batch | --tier --list --resume --dry-run | Build a whole tier of adapters |
-| /simplify | --file --module --adapter --target | Refactor code without behavior change |
-| /enrich | --field --source --test | Add enrichment function to pipeline |
-| /run | --config --source --dry-run | Execute pipeline, see results |
-| /lsp | --enable --check --fix | Type checking with pyright |
-| /fix | --adapter --test --ci | Fix broken adapter/test/CI |
-| /check | --full --adapter | Read-only quality audit |
-| /stage | --plan --execute --verify --status | Run GSD phase lifecycle |
+## /simplify
+Refactor without behavior changes.
+- `--file <path> [--target "<goal>"]`
+- `--module <name> [--target "<goal>"]`
+- `--adapter <id> [--target "<goal>"]`
 
-## Codebase-specific rules
-1. One adapter = one source file + one test file + two config entries + one atomic commit.
-2. Never enable LinkedIn in CI config.
-3. Stage values must be canonical: pre-seed|stealth|seed|series-a|series-b|series-c.
-4. Keep `scm_pitchbook/` separate from `startup_watch/` work.
-5. Use conventional commits.
+## /enrich
+Add enrichment pipeline functions.
+- `--field <name> [--source <source>] [--test]`
+
+## /run
+Execute pipeline and report metrics.
+- `--config <ci|local> [--source <id>] [--dry-run] [--verbose]`
+
+## /lsp
+Pyright/type-check support.
+- `--enable [--strict]`
+- `--check [--file <path>]`
+- `--fix <path>`
+
+## /fix
+Fix adapters/tests/CI quickly.
+- `--adapter <id> [--reason "..."]`
+- `--test <path> [--reason "..."]`
+- `--ci [--reason "..."]`
+
+## /check
+Read-only quality audit.
+- `[--full] [--adapter <id>]`
+
+## /stage
+GSD phase lifecycle wrapper.
+- `--plan <N> [--discuss]`
+- `--execute <N>`
+- `--verify <N>`
+- `--status`
+- `--next`
+
+## Quick Reference (9 commands)
+1. /src
+2. /batch
+3. /simplify
+4. /enrich
+5. /run
+6. /lsp
+7. /fix
+8. /check
+9. /stage
+
+## Guardrails
+- Never enable LinkedIn in CI config.
+- Use canonical stage values only.
+- One adapter per atomic commit (source + test + config entries).
+- Keep `SCM Companies PItchbook Extract/` separate from `startup_watch/`.

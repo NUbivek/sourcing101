@@ -1,102 +1,70 @@
 # SOURCING101 — PROJECT CONTEXT
-
-# Load this file at the start of every session and every subagent spawn.
+Load this file at the start of every session and every subagent spawn.
 
 ## OWNER & PURPOSE
 - Owner: Bivek Adhikari, VC analyst
-- Goal: Identify pre-seed/stealth/seed/Series A startups in supply chain, manufacturing, and AgTech BEFORE they appear in standard VC databases
+- Goal: Identify pre-seed/stealth/seed/Series A startups in supply chain, manufacturing, and AgTech before they appear in standard VC databases
 - Runtime: Python 3.10+, macOS Apple Silicon (local) + Ubuntu 22.04 (CI)
 - Repo: https://github.com/NUbivek/sourcing101.git
 
----
+## INVESTMENT THESIS
+Priority verticals:
+1. Supply Chain Intelligence
+2. Manufacturing Tech
+3. AgTech
+4. Industrial AI / IoT
+5. Procurement & Sourcing
+6. Supply Chain Finance
+7. Warehousing & Intralogistics
+8. Supply Chain Risk
 
-## INVESTMENT THESIS (drives all scraping decisions)
-Track startups in these verticals, in priority order:
-1. Supply Chain Intelligence — TMS, WMS, 3PL, demand/supply planning, SCI
-2. Manufacturing Tech — factory software, robotics, cobots, digital twin
-3. AgTech — precision agriculture, farm management, food supply chain
-4. Industrial AI / IoT — Industry 4.0, IIoT, predictive maintenance
-5. Procurement & Sourcing — agentic procurement, RFP management
-6. Supply Chain Finance — payments, deduction management, working capital
-7. Warehousing & Intralogistics — warehouse robotics, WMS, fulfillment
-8. Supply Chain Risk — compliance, traceability, ESG reporting
+Stage targets: pre-seed, stealth, seed, series-a, series-b, series-c
+Geography: US, Canada, EU, Israel, Australia, NZ
 
-Stage targets: pre-seed · stealth · seed · series-a · series-b · series-c
-Geographic scope: US · Canada · EU (15 countries) · Israel · Australia · NZ
+## REPO DIRECTION
+Target structure for incremental refactor:
+- `startup_watch/startup_watch.py` (entrypoint)
+- `startup_watch/schema.py`
+- `startup_watch/pipeline.py`
+- `startup_watch/filters.py`
+- `startup_watch/dedup.py`
+- `startup_watch/enrichment.py`
+- `startup_watch/logger.py`
+- `startup_watch/adapters/*.py`
+- `tests/unit`, `tests/integration`
 
----
+Legacy OCR subproject (`SCM Companies PItchbook Extract/`) is separate and low priority.
 
-## REPO STRUCTURE
-```text
-sourcing101/
-├── startup_watch/
-│   ├── startup_watch.py
-│   ├── config.yaml
-│   ├── config.github.yaml
-│   └── adapters/
-├── scm_pitchbook/
-├── tests/
-├── requirements.txt
-├── pyproject.toml
-└── .github/workflows/startup_watch.yml
-```
+## SOURCE TIERS (target)
+1. University incubators
+2. Private accelerators
+3. VC portfolios
+4. News/RSS
+5. Public databases
+6. Specialized industry
+7. Social signals
 
----
-
-## CORE DATA MODEL
-- Normalized startup signal output including:
-  - company name
-  - website
-  - description
-  - stage
-  - categories
-  - source name/url
-  - scrape timestamp
-  - optional enrichment fields (funding, investors, location, headcount)
-
-CSV output convention: lists are pipe-separated.
-
----
-
-## SOURCE ARCHITECTURE (7 tiers, 200+ adapters target)
-1) University incubators
-2) Private accelerators
-3) VC portfolios
-4) News/RSS
-5) Public startup databases
-6) Specialized industry sources
-7) Social signals
-
----
-
-## SCRAPING TECHNOLOGY RULES
-- Static HTML: requests + BeautifulSoup
-- JS-rendered pages: Playwright
+## SCRAPING RULES
+- Static pages: requests + BS4
+- JS pages: Playwright
 - RSS/Atom: feedparser
-- JSON endpoints: requests
-- LinkedIn: local-only auth session (never CI)
-
----
+- JSON/XHR: requests + json
+- LinkedIn: local-only, never CI
 
 ## CODING STANDARDS
-- Python 3.10+, type hints, PEP8
-- Config-driven behavior
-- Retry + exponential backoff for flaky network calls
-- 2–5s randomized delay for scraping requests
-- No secrets or user-specific paths in committed code
+- Python 3.10+, PEP8, full type hints, docstrings for public methods
+- Absolute imports
+- `os.getenv()` for secrets
+- Retry network calls with exponential backoff
+- Random request delays (2–5s)
+- Adapters implement a common contract returning list of normalized startup signals
 
----
+## CI RULES (CRITICAL)
+- `config.github.yaml` disables LinkedIn/auth-required sources
+- Never hardcode credentials, machine paths, or usernames
+- Auth-required adapters must stay disabled in CI
 
-## CI RULES
-- `config.github.yaml`: auth-required sources disabled
-- LinkedIn disabled in CI
-- New non-auth adapters enabled in CI config
-- New auth adapters disabled in CI config
-
----
-
-## STAGE INFERENCE RULES
-Canonical values only:
+## STAGE INFERENCE CANONICAL VALUES
 - pre-seed
 - stealth
 - seed
@@ -104,21 +72,10 @@ Canonical values only:
 - series-b
 - series-c
 
-Amount heuristic (guideline):
-- < $1M: pre-seed
-- $1M–$5M: seed
-- $5M–$20M: series-a
-- $20M–$75M: series-b
-- > $75M: series-c
-
----
-
 ## TASK SIZE CONSTRAINTS
 - 2–3 tasks per phase
-- One adapter OR one module per task
-- End each task with tests/lint + atomic commit
-
----
+- One adapter OR one core module per task
+- End every task with tests + lint + atomic commit
 
 ## VERIFICATION CHECKLIST
 ```bash
@@ -127,7 +84,7 @@ python -m flake8 startup_watch/ --max-line-length=100
 git log --oneline -3
 ```
 
-For adapter tasks:
+For adapter work:
 ```bash
 python -c "from startup_watch.adapters.<id> import <ClassName>; print(<ClassName>().fetch()[:2])"
 ```
