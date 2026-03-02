@@ -175,3 +175,17 @@ filters:
     - "IBM"
     - "Intel"
     - "SAP"
+
+mit_deltav_adapter:
+  enabled: true
+  urls:
+    - "https://entrepreneurship.mit.edu/accelerator/2025-delta-v/"
+    - "https://entrepreneurship.mit.edu/accelerator/investor-days-2025/"
+
+stanford_startx_adapter:
+  enabled: true
+  url: "https://startx.com/companies_med/"
+
+berkeley_skydeck_adapter:
+  enabled: true
+  url: "https://skydeck.berkeley.edu/portfolio/"
