@@ -21,6 +21,7 @@ from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.firstround import FirstroundAdapter
 from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
 from startup_watch.adapters.manufacturing_net import ManufacturingNetAdapter
 from startup_watch.adapters.mfg_dive import MfgDiveAdapter
@@ -29,7 +30,9 @@ from startup_watch.adapters.sequoia import SequoiaAdapter
 from startup_watch.adapters.stanford_startx import StanfordStartxAdapter
 from startup_watch.adapters.startupstream import StartupStreamAdapter
 from startup_watch.adapters.smart_industry import SmartIndustryAdapter
+from startup_watch.adapters.skydeck_fund import SkydeckFundAdapter
 from startup_watch.adapters.spendmatters import SpendmattersAdapter
+from startup_watch.adapters.s2g_companies import S2gCompaniesAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
@@ -65,6 +68,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         A16zAdapter(config.get("a16z_adapter", {})),
         SequoiaAdapter(config.get("sequoia_adapter", {})),
         BessemerAdapter(config.get("bessemer_adapter", {})),
+        FirstroundAdapter(config.get("firstround_adapter", {})),
+        SkydeckFundAdapter(config.get("skydeck_fund_adapter", {})),
+        S2gCompaniesAdapter(config.get("s2g_companies_adapter", {})),
         TechcrunchFundingAdapter(config.get("techcrunch_funding_adapter", {})),
         AgfunderNewsAdapter(config.get("agfunder_news_adapter", {})),
         AgfunderPodAdapter(config.get("agfunder_pod_adapter", {})),

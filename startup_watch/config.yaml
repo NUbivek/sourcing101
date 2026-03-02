@@ -216,6 +216,18 @@ bessemer_adapter:
   enabled: true
   url: "https://www.bvp.com/portfolio"
 
+firstround_adapter:
+  enabled: true
+  url: "https://firstround.com/companies/"
+
+skydeck_fund_adapter:
+  enabled: true
+  url: "https://skydeck.vc/portfolio"
+
+s2g_companies_adapter:
+  enabled: true
+  url: "https://www.s2ginvestments.com/companies"
+
 techcrunch_funding_adapter:
   enabled: true
   url: "https://techcrunch.com/category/funding/feed/"
