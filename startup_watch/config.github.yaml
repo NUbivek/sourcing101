@@ -183,3 +183,17 @@ stanford_startx_adapter:
 berkeley_skydeck_adapter:
   enabled: true
   url: "https://skydeck.berkeley.edu/portfolio/"
+
+alchemist_adapter:
+  enabled: true
+  url: "https://www.alchemistaccelerator.com/portfolio"
+
+plugandplay_sc_adapter:
+  enabled: true
+  url: "https://www.businesswire.com/news/home/20190826005090/en/Plug-and-Play-Supply-Chain-Batch-Four-Showcases-16-Startups-in-Silicon-Valley"
+
+thrive_agtech_adapter:
+  enabled: true
+  urls:
+    - "https://thriveagrifood.com/svg-ventures-thrive-launches-sixth-academy-cohort/"
+    - "https://thriveagrifood.com/svg-ventures-thrive-unveils-canada-iii-accelerator-cohort/"
