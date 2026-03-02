@@ -287,3 +287,15 @@ logisticsmgmt_adapter:
 agweb_adapter:
   enabled: true
   url: "https://www.agweb.com/rss"
+
+mmh_adapter:
+  enabled: true
+  url: "https://www.mmh.com/rss"
+
+mfg_dive_adapter:
+  enabled: true
+  url: "https://www.manufacturingdive.com/feeds/news/"
+
+industryweek_adapter:
+  enabled: true
+  url: "https://www.industryweek.com/rss"

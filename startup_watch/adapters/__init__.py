@@ -1,3 +1,6 @@
+from startup_watch.adapters.mmh import MmhAdapter
+from startup_watch.adapters.mfg_dive import MfgDiveAdapter
+from startup_watch.adapters.industryweek import IndustryweekAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.logisticsmgmt import LogisticsmgmtAdapter
 from startup_watch.adapters.agweb import AgwebAdapter
@@ -33,6 +36,7 @@ __all__ = [
     "AgdailyAdapter",
     "AgfunderPodAdapter",
     "AgwebAdapter",
+    "IndustryweekAdapter",
     "YCombinatorAdapter",
     "StartupStreamAdapter",
     "LinkedInAdapter",
@@ -49,6 +53,7 @@ __all__ = [
     "SupplychaindiveAdapter",
     "VenturebeatAiAdapter",
     "SupplychainbrainAdapter",
+    "MmhAdapter",
     "TechcrunchFundingAdapter",
     "AgfunderNewsAdapter",
     "FreightwavesAdapter",
@@ -60,4 +65,5 @@ __all__ = [
     "IotAnalyticsAdapter",
     "ManufacturingNetAdapter",
     "LogisticsmgmtAdapter",
+    "MfgDiveAdapter",
 ]

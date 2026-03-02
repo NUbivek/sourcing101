@@ -15,6 +15,7 @@ from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.linkedin import LinkedInAdapter
+from startup_watch.adapters.industryweek import IndustryweekAdapter
 from startup_watch.adapters.logisticsmgmt import LogisticsmgmtAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
@@ -22,6 +23,8 @@ from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
 from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
 from startup_watch.adapters.manufacturing_net import ManufacturingNetAdapter
+from startup_watch.adapters.mfg_dive import MfgDiveAdapter
+from startup_watch.adapters.mmh import MmhAdapter
 from startup_watch.adapters.sequoia import SequoiaAdapter
 from startup_watch.adapters.stanford_startx import StanfordStartxAdapter
 from startup_watch.adapters.startupstream import StartupStreamAdapter
@@ -66,6 +69,7 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         AgfunderNewsAdapter(config.get("agfunder_news_adapter", {})),
         AgfunderPodAdapter(config.get("agfunder_pod_adapter", {})),
         AgwebAdapter(config.get("agweb_adapter", {})),
+        IndustryweekAdapter(config.get("industryweek_adapter", {})),
         FreightwavesAdapter(config.get("freightwaves_adapter", {})),
         WellfoundAdapter(config.get("wellfound_adapter", {})),
         BetalistAdapter(config.get("betalist_adapter", {})),
@@ -74,6 +78,8 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         SmartIndustryAdapter(config.get("smart_industry_adapter", {})),
         IotAnalyticsAdapter(config.get("iot_analytics_adapter", {})),
         ManufacturingNetAdapter(config.get("manufacturing_net_adapter", {})),
+        MfgDiveAdapter(config.get("mfg_dive_adapter", {})),
+        MmhAdapter(config.get("mmh_adapter", {})),
         LogisticsmgmtAdapter(config.get("logisticsmgmt_adapter", {})),
         SupplychaindiveAdapter(config.get("supplychaindive_adapter", {})),
         TherobotreportAdapter(config.get("therobotreport_adapter", {})),
