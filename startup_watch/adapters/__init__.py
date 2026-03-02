@@ -9,7 +9,9 @@ from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
 from startup_watch.adapters.cornell_tech import CornellTechAdapter
 from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
+from startup_watch.adapters.dealroom import DealroomAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
 from startup_watch.adapters.industryweek import IndustryweekAdapter
 from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
@@ -19,6 +21,7 @@ from startup_watch.adapters.manufacturing_net import ManufacturingNetAdapter
 from startup_watch.adapters.mfg_dive import MfgDiveAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.mmh import MmhAdapter
+from startup_watch.adapters.openvc import OpenvcAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.s2g_companies import S2gCompaniesAdapter
@@ -50,7 +53,9 @@ __all__ = [
     "CornellTechAdapter",
     "BessemerAdapter",
     "BetalistAdapter",
+    "DealroomAdapter",
     "FreightwavesAdapter",
+    "F6sAdapter",
     "FirstroundAdapter",
     "IndustryweekAdapter",
     "IotAnalyticsAdapter",
@@ -60,6 +65,7 @@ __all__ = [
     "MfgDiveAdapter",
     "MitDeltavAdapter",
     "MmhAdapter",
+    "OpenvcAdapter",
     "PlugandplayScAdapter",
     "ProducthuntAdapter",
     "S2gCompaniesAdapter",

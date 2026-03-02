@@ -12,6 +12,7 @@ from startup_watch.adapters.agweb import AgwebAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
 from startup_watch.adapters.atdc import AtdcAdapter
 from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
+from startup_watch.adapters.dealroom import DealroomAdapter
 from startup_watch.adapters.cornell_tech import CornellTechAdapter
 from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
@@ -23,11 +24,13 @@ from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
 from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
 from startup_watch.adapters.manufacturing_net import ManufacturingNetAdapter
 from startup_watch.adapters.mfg_dive import MfgDiveAdapter
 from startup_watch.adapters.mmh import MmhAdapter
+from startup_watch.adapters.openvc import OpenvcAdapter
 from startup_watch.adapters.sequoia import SequoiaAdapter
 from startup_watch.adapters.stanford_startx import StanfordStartxAdapter
 from startup_watch.adapters.startupstream import StartupStreamAdapter
@@ -77,6 +80,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         FirstroundAdapter(config.get("firstround_adapter", {})),
         SkydeckFundAdapter(config.get("skydeck_fund_adapter", {})),
         S2gCompaniesAdapter(config.get("s2g_companies_adapter", {})),
+        DealroomAdapter(config.get("dealroom_adapter", {})),
+        F6sAdapter(config.get("f6s_adapter", {})),
+        OpenvcAdapter(config.get("openvc_adapter", {})),
         TechcrunchFundingAdapter(config.get("techcrunch_funding_adapter", {})),
         AgfunderNewsAdapter(config.get("agfunder_news_adapter", {})),
         AgfunderPodAdapter(config.get("agfunder_pod_adapter", {})),

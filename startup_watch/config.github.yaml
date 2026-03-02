@@ -234,6 +234,18 @@ atdc_adapter:
   enabled: true
   url: "https://atdc.org/portfolio/"
 
+dealroom_adapter:
+  enabled: true
+  url: "https://dealroom.co/"
+
+f6s_adapter:
+  enabled: true
+  url: "https://www.f6s.com/programs"
+
+openvc_adapter:
+  enabled: true
+  url: "https://www.openvc.app/startups"
+
 techcrunch_funding_adapter:
   enabled: true
   url: "https://techcrunch.com/category/funding/feed/"
