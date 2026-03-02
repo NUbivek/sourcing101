@@ -252,6 +252,18 @@ openvc_adapter:
   enabled: true
   url: "https://www.openvc.app/startups"
 
+angellist_startups_adapter:
+  enabled: true
+  url: "https://wellfound.com/discover/startups"
+
+eu_startups_adapter:
+  enabled: true
+  url: "https://www.eu-startups.com/category/startups/"
+
+future_ag_adapter:
+  enabled: true
+  url: "https://www.futurefarming.com/rss"
+
 techcrunch_funding_adapter:
   enabled: true
   url: "https://techcrunch.com/category/funding/feed/"

@@ -9,6 +9,7 @@ from startup_watch.adapters.agdaily import AgdailyAdapter
 from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
 from startup_watch.adapters.agfunder_pod import AgfunderPodAdapter
 from startup_watch.adapters.agweb import AgwebAdapter
+from startup_watch.adapters.angellist_startups import AngellistStartupsAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
 from startup_watch.adapters.atdc import AtdcAdapter
 from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
@@ -24,8 +25,10 @@ from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.eu_startups import EuStartupsAdapter
 from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
+from startup_watch.adapters.future_ag import FutureAgAdapter
 from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
 from startup_watch.adapters.manufacturing_net import ManufacturingNetAdapter
 from startup_watch.adapters.mfg_dive import MfgDiveAdapter
@@ -83,6 +86,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         DealroomAdapter(config.get("dealroom_adapter", {})),
         F6sAdapter(config.get("f6s_adapter", {})),
         OpenvcAdapter(config.get("openvc_adapter", {})),
+        AngellistStartupsAdapter(config.get("angellist_startups_adapter", {})),
+        EuStartupsAdapter(config.get("eu_startups_adapter", {})),
+        FutureAgAdapter(config.get("future_ag_adapter", {})),
         TechcrunchFundingAdapter(config.get("techcrunch_funding_adapter", {})),
         AgfunderNewsAdapter(config.get("agfunder_news_adapter", {})),
         AgfunderPodAdapter(config.get("agfunder_pod_adapter", {})),

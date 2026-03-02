@@ -3,6 +3,7 @@ from startup_watch.adapters.agdaily import AgdailyAdapter
 from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
 from startup_watch.adapters.agfunder_pod import AgfunderPodAdapter
 from startup_watch.adapters.agweb import AgwebAdapter
+from startup_watch.adapters.angellist_startups import AngellistStartupsAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
 from startup_watch.adapters.atdc import AtdcAdapter
 from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
@@ -11,8 +12,10 @@ from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.dealroom import DealroomAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.eu_startups import EuStartupsAdapter
 from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
+from startup_watch.adapters.future_ag import FutureAgAdapter
 from startup_watch.adapters.industryweek import IndustryweekAdapter
 from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
 from startup_watch.adapters.linkedin import LinkedInAdapter
@@ -47,6 +50,7 @@ __all__ = [
     "AgfunderNewsAdapter",
     "AgfunderPodAdapter",
     "AgwebAdapter",
+    "AngellistStartupsAdapter",
     "AlchemistAdapter",
     "AtdcAdapter",
     "BerkeleySkydeckAdapter",
@@ -55,8 +59,10 @@ __all__ = [
     "BetalistAdapter",
     "DealroomAdapter",
     "FreightwavesAdapter",
+    "EuStartupsAdapter",
     "F6sAdapter",
     "FirstroundAdapter",
+    "FutureAgAdapter",
     "IndustryweekAdapter",
     "IotAnalyticsAdapter",
     "LinkedInAdapter",
