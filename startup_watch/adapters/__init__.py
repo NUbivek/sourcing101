@@ -2,6 +2,7 @@ from startup_watch.adapters.a16z import A16zAdapter
 from startup_watch.adapters.agdaily import AgdailyAdapter
 from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
 from startup_watch.adapters.agfunder_pod import AgfunderPodAdapter
+from startup_watch.adapters.agriinvestor import AgriinvestorAdapter
 from startup_watch.adapters.agweb import AgwebAdapter
 from startup_watch.adapters.angellist_startups import AngellistStartupsAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
@@ -26,10 +27,12 @@ from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.mmh import MmhAdapter
 from startup_watch.adapters.openvc import OpenvcAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
+from startup_watch.adapters.pitchbook_blog import PitchbookBlogAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.s2g_companies import S2gCompaniesAdapter
 from startup_watch.adapters.sequoia import SequoiaAdapter
 from startup_watch.adapters.skydeck_fund import SkydeckFundAdapter
+from startup_watch.adapters.sifted import SiftedAdapter
 from startup_watch.adapters.smart_industry import SmartIndustryAdapter
 from startup_watch.adapters.spendmatters import SpendmattersAdapter
 from startup_watch.adapters.stanford_startx import StanfordStartxAdapter
@@ -49,6 +52,7 @@ __all__ = [
     "AgdailyAdapter",
     "AgfunderNewsAdapter",
     "AgfunderPodAdapter",
+    "AgriinvestorAdapter",
     "AgwebAdapter",
     "AngellistStartupsAdapter",
     "AlchemistAdapter",
@@ -73,10 +77,12 @@ __all__ = [
     "MmhAdapter",
     "OpenvcAdapter",
     "PlugandplayScAdapter",
+    "PitchbookBlogAdapter",
     "ProducthuntAdapter",
     "S2gCompaniesAdapter",
     "SequoiaAdapter",
     "SkydeckFundAdapter",
+    "SiftedAdapter",
     "SmartIndustryAdapter",
     "SpendmattersAdapter",
     "StanfordStartxAdapter",

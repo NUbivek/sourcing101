@@ -8,6 +8,7 @@ from startup_watch.adapters.a16z import A16zAdapter
 from startup_watch.adapters.agdaily import AgdailyAdapter
 from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
 from startup_watch.adapters.agfunder_pod import AgfunderPodAdapter
+from startup_watch.adapters.agriinvestor import AgriinvestorAdapter
 from startup_watch.adapters.agweb import AgwebAdapter
 from startup_watch.adapters.angellist_startups import AngellistStartupsAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
@@ -23,6 +24,7 @@ from startup_watch.adapters.industryweek import IndustryweekAdapter
 from startup_watch.adapters.logisticsmgmt import LogisticsmgmtAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
+from startup_watch.adapters.pitchbook_blog import PitchbookBlogAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
 from startup_watch.adapters.eu_startups import EuStartupsAdapter
@@ -39,6 +41,7 @@ from startup_watch.adapters.stanford_startx import StanfordStartxAdapter
 from startup_watch.adapters.startupstream import StartupStreamAdapter
 from startup_watch.adapters.smart_industry import SmartIndustryAdapter
 from startup_watch.adapters.skydeck_fund import SkydeckFundAdapter
+from startup_watch.adapters.sifted import SiftedAdapter
 from startup_watch.adapters.spendmatters import SpendmattersAdapter
 from startup_watch.adapters.s2g_companies import S2gCompaniesAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
@@ -89,6 +92,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         AngellistStartupsAdapter(config.get("angellist_startups_adapter", {})),
         EuStartupsAdapter(config.get("eu_startups_adapter", {})),
         FutureAgAdapter(config.get("future_ag_adapter", {})),
+        PitchbookBlogAdapter(config.get("pitchbook_blog_adapter", {})),
+        SiftedAdapter(config.get("sifted_adapter", {})),
+        AgriinvestorAdapter(config.get("agriinvestor_adapter", {})),
         TechcrunchFundingAdapter(config.get("techcrunch_funding_adapter", {})),
         AgfunderNewsAdapter(config.get("agfunder_news_adapter", {})),
         AgfunderPodAdapter(config.get("agfunder_pod_adapter", {})),

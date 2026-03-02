@@ -264,6 +264,18 @@ future_ag_adapter:
   enabled: true
   url: "https://www.futurefarming.com/rss"
 
+pitchbook_blog_adapter:
+  enabled: true
+  url: "https://pitchbook.com/news/articles/feed"
+
+sifted_adapter:
+  enabled: true
+  url: "https://sifted.eu/feed"
+
+agriinvestor_adapter:
+  enabled: true
+  url: "https://www.agriinvestor.com/feed/"
+
 techcrunch_funding_adapter:
   enabled: true
   url: "https://techcrunch.com/category/funding/feed/"
