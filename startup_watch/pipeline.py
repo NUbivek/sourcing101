@@ -8,12 +8,14 @@ from startup_watch.adapters.a16z import A16zAdapter
 from startup_watch.adapters.agdaily import AgdailyAdapter
 from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
 from startup_watch.adapters.agfunder_pod import AgfunderPodAdapter
+from startup_watch.adapters.agweb import AgwebAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
 from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
 from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.linkedin import LinkedInAdapter
+from startup_watch.adapters.logisticsmgmt import LogisticsmgmtAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
@@ -26,6 +28,7 @@ from startup_watch.adapters.startupstream import StartupStreamAdapter
 from startup_watch.adapters.smart_industry import SmartIndustryAdapter
 from startup_watch.adapters.spendmatters import SpendmattersAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
+from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
 from startup_watch.adapters.therobotreport import TherobotreportAdapter
 from startup_watch.adapters.wellfound import WellfoundAdapter
@@ -62,6 +65,7 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         TechcrunchFundingAdapter(config.get("techcrunch_funding_adapter", {})),
         AgfunderNewsAdapter(config.get("agfunder_news_adapter", {})),
         AgfunderPodAdapter(config.get("agfunder_pod_adapter", {})),
+        AgwebAdapter(config.get("agweb_adapter", {})),
         FreightwavesAdapter(config.get("freightwaves_adapter", {})),
         WellfoundAdapter(config.get("wellfound_adapter", {})),
         BetalistAdapter(config.get("betalist_adapter", {})),
@@ -70,9 +74,11 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         SmartIndustryAdapter(config.get("smart_industry_adapter", {})),
         IotAnalyticsAdapter(config.get("iot_analytics_adapter", {})),
         ManufacturingNetAdapter(config.get("manufacturing_net_adapter", {})),
+        LogisticsmgmtAdapter(config.get("logisticsmgmt_adapter", {})),
         SupplychaindiveAdapter(config.get("supplychaindive_adapter", {})),
         TherobotreportAdapter(config.get("therobotreport_adapter", {})),
         VenturebeatAiAdapter(config.get("venturebeat_ai_adapter", {})),
+        SupplychainbrainAdapter(config.get("supplychainbrain_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:

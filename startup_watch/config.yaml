@@ -275,3 +275,15 @@ venturebeat_ai_adapter:
 agfunder_pod_adapter:
   enabled: true
   url: "https://agfundernews.com/feed"
+
+supplychainbrain_adapter:
+  enabled: true
+  url: "https://www.supplychainbrain.com/rss/topic/1200"
+
+logisticsmgmt_adapter:
+  enabled: true
+  url: "https://www.logisticsmgmt.com/rss"
+
+agweb_adapter:
+  enabled: true
+  url: "https://www.agweb.com/rss"
