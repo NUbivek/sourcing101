@@ -233,3 +233,15 @@ betalist_adapter:
 producthunt_adapter:
   enabled: true
   url: "https://www.producthunt.com/feed"
+
+spendmatters_adapter:
+  enabled: true
+  url: "https://spendmatters.com/feed/"
+
+smart_industry_adapter:
+  enabled: true
+  url: "https://www.smartindustry.com/rss"
+
+iot_analytics_adapter:
+  enabled: true
+  url: "https://iot-analytics.com/feed/"

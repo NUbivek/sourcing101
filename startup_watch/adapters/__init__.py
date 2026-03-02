@@ -9,9 +9,12 @@ from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
 from startup_watch.adapters.sequoia import SequoiaAdapter
 from startup_watch.adapters.stanford_startx import StanfordStartxAdapter
 from startup_watch.adapters.startupstream import StartupStreamAdapter
+from startup_watch.adapters.smart_industry import SmartIndustryAdapter
+from startup_watch.adapters.spendmatters import SpendmattersAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
 from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
 from startup_watch.adapters.wellfound import WellfoundAdapter
@@ -36,4 +39,7 @@ __all__ = [
     "WellfoundAdapter",
     "BetalistAdapter",
     "ProducthuntAdapter",
+    "SpendmattersAdapter",
+    "SmartIndustryAdapter",
+    "IotAnalyticsAdapter",
 ]
