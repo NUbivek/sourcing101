@@ -221,3 +221,15 @@ agfunder_news_adapter:
 freightwaves_adapter:
   enabled: true
   url: "https://www.freightwaves.com/news/feed"
+
+wellfound_adapter:
+  enabled: true
+  url: "https://wellfound.com/discover"
+
+betalist_adapter:
+  enabled: true
+  url: "https://betalist.com/"
+
+producthunt_adapter:
+  enabled: true
+  url: "https://www.producthunt.com/feed"
