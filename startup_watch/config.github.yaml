@@ -533,3 +533,15 @@ thenextweb_adapter:
 e27_adapter:
   enabled: true
   url: "https://e27.co/feed"
+
+startupbeat_adapter:
+  enabled: true
+  url: "https://startupbeat.com/feed/"
+
+entrepreneurshiplife_adapter:
+  enabled: true
+  url: "https://www.entrepreneurshiplife.com/feed/"
+
+innovationorigins_adapter:
+  enabled: true
+  url: "https://innovationorigins.com/en/feed/"
