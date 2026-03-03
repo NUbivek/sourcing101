@@ -4,6 +4,7 @@ from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
 from startup_watch.adapters.agfunder_pod import AgfunderPodAdapter
 from startup_watch.adapters.agriinvestor import AgriinvestorAdapter
 from startup_watch.adapters.agweb import AgwebAdapter
+from startup_watch.adapters.antler import AntlerAdapter
 from startup_watch.adapters.angellist_startups import AngellistStartupsAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
 from startup_watch.adapters.atdc import AtdcAdapter
@@ -13,6 +14,7 @@ from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.dealroom import DealroomAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.fivehundred_global import FivehundredGlobalAdapter
 from startup_watch.adapters.hackernews import HackernewsAdapter
 from startup_watch.adapters.eu_startups import EuStartupsAdapter
 from startup_watch.adapters.f6s import F6sAdapter
@@ -45,6 +47,7 @@ from startup_watch.adapters.startupstream import StartupStreamAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
+from startup_watch.adapters.techstars import TechstarsAdapter
 from startup_watch.adapters.tractica_ai import TracticaAiAdapter
 from startup_watch.adapters.uw_comotion import UwComotionAdapter
 from startup_watch.adapters.therobotreport import TherobotreportAdapter
@@ -60,6 +63,7 @@ __all__ = [
     "AgfunderPodAdapter",
     "AgriinvestorAdapter",
     "AgwebAdapter",
+    "AntlerAdapter",
     "AngellistStartupsAdapter",
     "AlchemistAdapter",
     "AtdcAdapter",
@@ -69,6 +73,7 @@ __all__ = [
     "BetalistAdapter",
     "DealroomAdapter",
     "FreightwavesAdapter",
+    "FivehundredGlobalAdapter",
     "HackernewsAdapter",
     "EuStartupsAdapter",
     "F6sAdapter",
@@ -101,6 +106,7 @@ __all__ = [
     "SupplychainbrainAdapter",
     "SupplychaindiveAdapter",
     "TechcrunchFundingAdapter",
+    "TechstarsAdapter",
     "TracticaAiAdapter",
     "UwComotionAdapter",
     "TherobotreportAdapter",

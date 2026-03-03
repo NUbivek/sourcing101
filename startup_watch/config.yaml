@@ -240,6 +240,18 @@ atdc_adapter:
   enabled: true
   url: "https://atdc.org/portfolio/"
 
+techstars_adapter:
+  enabled: true
+  url: "https://www.techstars.com/portfolio"
+
+fivehundred_global_adapter:
+  enabled: true
+  url: "https://500.co/companies"
+
+antler_adapter:
+  enabled: true
+  url: "https://www.antler.co/portfolio"
+
 dealroom_adapter:
   enabled: true
   url: "https://dealroom.co/"

@@ -10,6 +10,7 @@ from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
 from startup_watch.adapters.agfunder_pod import AgfunderPodAdapter
 from startup_watch.adapters.agriinvestor import AgriinvestorAdapter
 from startup_watch.adapters.agweb import AgwebAdapter
+from startup_watch.adapters.antler import AntlerAdapter
 from startup_watch.adapters.angellist_startups import AngellistStartupsAdapter
 from startup_watch.adapters.alchemist import AlchemistAdapter
 from startup_watch.adapters.atdc import AtdcAdapter
@@ -30,6 +31,7 @@ from startup_watch.adapters.pitchbook_blog import PitchbookBlogAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.reddit_startups import RedditStartupsAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.fivehundred_global import FivehundredGlobalAdapter
 from startup_watch.adapters.hackernews import HackernewsAdapter
 from startup_watch.adapters.eu_startups import EuStartupsAdapter
 from startup_watch.adapters.f6s import F6sAdapter
@@ -50,6 +52,7 @@ from startup_watch.adapters.spendmatters import SpendmattersAdapter
 from startup_watch.adapters.s2g_companies import S2gCompaniesAdapter
 from startup_watch.adapters.seedtable import SeedtableAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
+from startup_watch.adapters.techstars import TechstarsAdapter
 from startup_watch.adapters.tractica_ai import TracticaAiAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
@@ -83,6 +86,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         CornellTechAdapter(config.get("cornell_tech_adapter", {})),
         UwComotionAdapter(config.get("uw_comotion_adapter", {})),
         AtdcAdapter(config.get("atdc_adapter", {})),
+        TechstarsAdapter(config.get("techstars_adapter", {})),
+        FivehundredGlobalAdapter(config.get("fivehundred_global_adapter", {})),
+        AntlerAdapter(config.get("antler_adapter", {})),
         AlchemistAdapter(config.get("alchemist_adapter", {})),
         PlugandplayScAdapter(config.get("plugandplay_sc_adapter", {})),
         ThriveAgtechAdapter(config.get("thrive_agtech_adapter", {})),
