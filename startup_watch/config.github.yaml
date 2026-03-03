@@ -270,6 +270,18 @@ agriinvestor_adapter:
   enabled: true
   url: "https://www.agriinvestor.com/feed/"
 
+seedtable_adapter:
+  enabled: true
+  url: "https://www.seedtable.com/startups"
+
+tractica_ai_adapter:
+  enabled: true
+  url: "https://www.automationworld.com/rss"
+
+iiot_world_adapter:
+  enabled: true
+  url: "https://iiot-world.com/feed/"
+
 techcrunch_funding_adapter:
   enabled: true
   url: "https://techcrunch.com/category/funding/feed/"

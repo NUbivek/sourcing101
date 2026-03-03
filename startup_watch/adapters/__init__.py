@@ -18,6 +18,7 @@ from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
 from startup_watch.adapters.future_ag import FutureAgAdapter
 from startup_watch.adapters.industryweek import IndustryweekAdapter
+from startup_watch.adapters.iiot_world import IiotWorldAdapter
 from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
 from startup_watch.adapters.linkedin import LinkedInAdapter
 from startup_watch.adapters.logisticsmgmt import LogisticsmgmtAdapter
@@ -30,6 +31,7 @@ from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
 from startup_watch.adapters.pitchbook_blog import PitchbookBlogAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.s2g_companies import S2gCompaniesAdapter
+from startup_watch.adapters.seedtable import SeedtableAdapter
 from startup_watch.adapters.sequoia import SequoiaAdapter
 from startup_watch.adapters.skydeck_fund import SkydeckFundAdapter
 from startup_watch.adapters.sifted import SiftedAdapter
@@ -40,6 +42,7 @@ from startup_watch.adapters.startupstream import StartupStreamAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
+from startup_watch.adapters.tractica_ai import TracticaAiAdapter
 from startup_watch.adapters.uw_comotion import UwComotionAdapter
 from startup_watch.adapters.therobotreport import TherobotreportAdapter
 from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
@@ -68,6 +71,7 @@ __all__ = [
     "FirstroundAdapter",
     "FutureAgAdapter",
     "IndustryweekAdapter",
+    "IiotWorldAdapter",
     "IotAnalyticsAdapter",
     "LinkedInAdapter",
     "LogisticsmgmtAdapter",
@@ -80,6 +84,7 @@ __all__ = [
     "PitchbookBlogAdapter",
     "ProducthuntAdapter",
     "S2gCompaniesAdapter",
+    "SeedtableAdapter",
     "SequoiaAdapter",
     "SkydeckFundAdapter",
     "SiftedAdapter",
@@ -90,6 +95,7 @@ __all__ = [
     "SupplychainbrainAdapter",
     "SupplychaindiveAdapter",
     "TechcrunchFundingAdapter",
+    "TracticaAiAdapter",
     "UwComotionAdapter",
     "TherobotreportAdapter",
     "ThriveAgtechAdapter",

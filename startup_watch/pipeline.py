@@ -21,6 +21,7 @@ from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.linkedin import LinkedInAdapter
 from startup_watch.adapters.industryweek import IndustryweekAdapter
+from startup_watch.adapters.iiot_world import IiotWorldAdapter
 from startup_watch.adapters.logisticsmgmt import LogisticsmgmtAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
@@ -44,7 +45,9 @@ from startup_watch.adapters.skydeck_fund import SkydeckFundAdapter
 from startup_watch.adapters.sifted import SiftedAdapter
 from startup_watch.adapters.spendmatters import SpendmattersAdapter
 from startup_watch.adapters.s2g_companies import S2gCompaniesAdapter
+from startup_watch.adapters.seedtable import SeedtableAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
+from startup_watch.adapters.tractica_ai import TracticaAiAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
 from startup_watch.adapters.therobotreport import TherobotreportAdapter
@@ -95,6 +98,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         PitchbookBlogAdapter(config.get("pitchbook_blog_adapter", {})),
         SiftedAdapter(config.get("sifted_adapter", {})),
         AgriinvestorAdapter(config.get("agriinvestor_adapter", {})),
+        SeedtableAdapter(config.get("seedtable_adapter", {})),
+        TracticaAiAdapter(config.get("tractica_ai_adapter", {})),
+        IiotWorldAdapter(config.get("iiot_world_adapter", {})),
         TechcrunchFundingAdapter(config.get("techcrunch_funding_adapter", {})),
         AgfunderNewsAdapter(config.get("agfunder_news_adapter", {})),
         AgfunderPodAdapter(config.get("agfunder_pod_adapter", {})),
