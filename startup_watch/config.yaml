@@ -276,6 +276,18 @@ crunchbase_news_adapter:
   enabled: true
   url: "https://news.crunchbase.com/feed/"
 
+gust_adapter:
+  enabled: true
+  url: "https://gust.com/companies"
+
+enterprise_ireland_adapter:
+  enabled: true
+  url: "https://www.enterprise-ireland.com/en/Invest-in-Ireland/Client-Companies/"
+
+tech_eu_adapter:
+  enabled: true
+  url: "https://tech.eu/feed/"
+
 angellist_startups_adapter:
   enabled: true
   url: "https://wellfound.com/discover/startups"

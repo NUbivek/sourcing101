@@ -15,9 +15,11 @@ from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.dealroom import DealroomAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.gust import GustAdapter
 from startup_watch.adapters.fivehundred_global import FivehundredGlobalAdapter
 from startup_watch.adapters.hackernews import HackernewsAdapter
 from startup_watch.adapters.eu_startups import EuStartupsAdapter
+from startup_watch.adapters.enterprise_ireland import EnterpriseIrelandAdapter
 from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
 from startup_watch.adapters.future_ag import FutureAgAdapter
@@ -50,6 +52,7 @@ from startup_watch.adapters.startup_genome import StartupGenomeAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
+from startup_watch.adapters.tech_eu import TechEuAdapter
 from startup_watch.adapters.techstars import TechstarsAdapter
 from startup_watch.adapters.tractica_ai import TracticaAiAdapter
 from startup_watch.adapters.uw_comotion import UwComotionAdapter
@@ -77,9 +80,11 @@ __all__ = [
     "BetalistAdapter",
     "DealroomAdapter",
     "FreightwavesAdapter",
+    "GustAdapter",
     "FivehundredGlobalAdapter",
     "HackernewsAdapter",
     "EuStartupsAdapter",
+    "EnterpriseIrelandAdapter",
     "F6sAdapter",
     "FirstroundAdapter",
     "FutureAgAdapter",
@@ -112,6 +117,7 @@ __all__ = [
     "SupplychainbrainAdapter",
     "SupplychaindiveAdapter",
     "TechcrunchFundingAdapter",
+    "TechEuAdapter",
     "TechstarsAdapter",
     "TracticaAiAdapter",
     "UwComotionAdapter",

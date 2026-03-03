@@ -5,17 +5,17 @@ current_phase: adapter_coverage
 last_updated: 2026-03-02
 
 progress:
-  adapters_done: 60
+  adapters_done: 63
   adapters_target: 235
-  adapters_remaining: 175
+  adapters_remaining: 172
 
 tiers:
   tier_1_university: { done: 6, target: 17, remaining: 11 }
   tier_2_accelerators: { done: 8, target: 19, remaining: 11 }
   tier_3_vc_portfolios: { done: 4, target: 24, remaining: 20 }
-  tier_4_news_rss: { done: 19, target: 14, remaining: 0 }
-  tier_5_databases: { done: 11, target: 11, remaining: 0 }
-  tier_6_specialized: { done: 8, target: 9, remaining: 1 }
+  tier_4_news_rss: { done: 20, target: 14, remaining: 0 }
+  tier_5_databases: { done: 12, target: 11, remaining: 0 }
+  tier_6_specialized: { done: 9, target: 9, remaining: 0 }
   tier_7_social: { done: 4, target: 7, remaining: 3 }
 
 checklist:

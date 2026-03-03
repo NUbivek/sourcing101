@@ -32,9 +32,11 @@ from startup_watch.adapters.pitchbook_blog import PitchbookBlogAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.reddit_startups import RedditStartupsAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.gust import GustAdapter
 from startup_watch.adapters.fivehundred_global import FivehundredGlobalAdapter
 from startup_watch.adapters.hackernews import HackernewsAdapter
 from startup_watch.adapters.eu_startups import EuStartupsAdapter
+from startup_watch.adapters.enterprise_ireland import EnterpriseIrelandAdapter
 from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
 from startup_watch.adapters.future_ag import FutureAgAdapter
@@ -55,6 +57,7 @@ from startup_watch.adapters.spendmatters import SpendmattersAdapter
 from startup_watch.adapters.s2g_companies import S2gCompaniesAdapter
 from startup_watch.adapters.seedtable import SeedtableAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
+from startup_watch.adapters.tech_eu import TechEuAdapter
 from startup_watch.adapters.techstars import TechstarsAdapter
 from startup_watch.adapters.tractica_ai import TracticaAiAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
@@ -107,6 +110,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         StartupGenomeAdapter(config.get("startup_genome_adapter", {})),
         OwlerAdapter(config.get("owler_adapter", {})),
         CrunchbaseNewsAdapter(config.get("crunchbase_news_adapter", {})),
+        GustAdapter(config.get("gust_adapter", {})),
+        EnterpriseIrelandAdapter(config.get("enterprise_ireland_adapter", {})),
+        TechEuAdapter(config.get("tech_eu_adapter", {})),
         AngellistStartupsAdapter(config.get("angellist_startups_adapter", {})),
         EuStartupsAdapter(config.get("eu_startups_adapter", {})),
         FutureAgAdapter(config.get("future_ag_adapter", {})),
