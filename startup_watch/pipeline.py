@@ -72,6 +72,9 @@ from startup_watch.adapters.tech_eu import TechEuAdapter
 from startup_watch.adapters.techstars import TechstarsAdapter
 from startup_watch.adapters.techfundingnews import TechfundingnewsAdapter
 from startup_watch.adapters.tractica_ai import TracticaAiAdapter
+from startup_watch.adapters.siliconcanals import SiliconcanalsAdapter
+from startup_watch.adapters.vestbee import VestbeeAdapter
+from startup_watch.adapters.startupdaily import StartupdailyAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -175,6 +178,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         TechfundingnewsAdapter(config.get("techfundingnews_adapter", {})),
         GreenqueenAdapter(config.get("greenqueen_adapter", {})),
         FinsmesAdapter(config.get("finsmes_adapter", {})),
+        SiliconcanalsAdapter(config.get("siliconcanals_adapter", {})),
+        VestbeeAdapter(config.get("vestbee_adapter", {})),
+        StartupdailyAdapter(config.get("startupdaily_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:

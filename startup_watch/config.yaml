@@ -479,3 +479,15 @@ greenqueen_adapter:
 finsmes_adapter:
   enabled: true
   url: "https://www.finsmes.com/feed"
+
+siliconcanals_adapter:
+  enabled: true
+  url: "https://siliconcanals.com/feed/"
+
+vestbee_adapter:
+  enabled: true
+  url: "https://www.vestbee.com/blog/rss"
+
+startupdaily_adapter:
+  enabled: true
+  url: "https://www.startupdaily.net/feed/"
