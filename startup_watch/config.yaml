@@ -232,6 +232,18 @@ cornell_tech_adapter:
   enabled: true
   url: "https://tech.cornell.edu/startups/"
 
+harvard_ilab_adapter:
+  enabled: true
+  url: "https://i-lab.harvard.edu/venture-program/"
+
+oxford_foundry_adapter:
+  enabled: true
+  url: "https://www.oxfordfoundry.ox.ac.uk/ventures"
+
+eth_pioneer_adapter:
+  enabled: true
+  url: "https://pioneerfellowship.ch/ventures"
+
 uw_comotion_adapter:
   enabled: true
   url: "https://comotion.uw.edu/startups/"

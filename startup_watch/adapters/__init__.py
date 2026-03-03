@@ -18,8 +18,10 @@ from startup_watch.adapters.freightwaves import FreightwavesAdapter
 from startup_watch.adapters.gust import GustAdapter
 from startup_watch.adapters.fivehundred_global import FivehundredGlobalAdapter
 from startup_watch.adapters.hackernews import HackernewsAdapter
+from startup_watch.adapters.harvard_ilab import HarvardIlabAdapter
 from startup_watch.adapters.eu_startups import EuStartupsAdapter
 from startup_watch.adapters.enterprise_ireland import EnterpriseIrelandAdapter
+from startup_watch.adapters.eth_pioneer import EthPioneerAdapter
 from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
 from startup_watch.adapters.future_ag import FutureAgAdapter
@@ -34,6 +36,7 @@ from startup_watch.adapters.mfg_dive import MfgDiveAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.mmh import MmhAdapter
 from startup_watch.adapters.owler import OwlerAdapter
+from startup_watch.adapters.oxford_foundry import OxfordFoundryAdapter
 from startup_watch.adapters.openvc import OpenvcAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
 from startup_watch.adapters.pitchbook_blog import PitchbookBlogAdapter
@@ -83,8 +86,10 @@ __all__ = [
     "GustAdapter",
     "FivehundredGlobalAdapter",
     "HackernewsAdapter",
+    "HarvardIlabAdapter",
     "EuStartupsAdapter",
     "EnterpriseIrelandAdapter",
+    "EthPioneerAdapter",
     "F6sAdapter",
     "FirstroundAdapter",
     "FutureAgAdapter",
@@ -99,6 +104,7 @@ __all__ = [
     "MitDeltavAdapter",
     "MmhAdapter",
     "OwlerAdapter",
+    "OxfordFoundryAdapter",
     "OpenvcAdapter",
     "PlugandplayScAdapter",
     "PitchbookBlogAdapter",
