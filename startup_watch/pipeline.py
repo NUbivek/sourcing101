@@ -7,6 +7,7 @@ import yaml
 from startup_watch.adapters.a16z import A16zAdapter
 from startup_watch.adapters.agdaily import AgdailyAdapter
 from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
+from startup_watch.adapters.agfunder import AgfunderAdapter
 from startup_watch.adapters.agfunder_pod import AgfunderPodAdapter
 from startup_watch.adapters.agriinvestor import AgriinvestorAdapter
 from startup_watch.adapters.agweb import AgwebAdapter
@@ -34,6 +35,7 @@ from startup_watch.adapters.pitchbook_blog import PitchbookBlogAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.reddit_startups import RedditStartupsAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.foodbytes import FoodbytesAdapter
 from startup_watch.adapters.gust import GustAdapter
 from startup_watch.adapters.fivehundred_global import FivehundredGlobalAdapter
 from startup_watch.adapters.hackernews import HackernewsAdapter
@@ -41,6 +43,7 @@ from startup_watch.adapters.harvard_ilab import HarvardIlabAdapter
 from startup_watch.adapters.eu_startups import EuStartupsAdapter
 from startup_watch.adapters.enterprise_ireland import EnterpriseIrelandAdapter
 from startup_watch.adapters.eth_pioneer import EthPioneerAdapter
+from startup_watch.adapters.eit_food import EitFoodAdapter
 from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
 from startup_watch.adapters.future_ag import FutureAgAdapter
@@ -139,6 +142,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         IndiehackersAdapter(config.get("indiehackers_adapter", {})),
         TechcrunchFundingAdapter(config.get("techcrunch_funding_adapter", {})),
         AgfunderNewsAdapter(config.get("agfunder_news_adapter", {})),
+        AgfunderAdapter(config.get("agfunder_adapter", {})),
+        EitFoodAdapter(config.get("eit_food_adapter", {})),
+        FoodbytesAdapter(config.get("foodbytes_adapter", {})),
         AgfunderPodAdapter(config.get("agfunder_pod_adapter", {})),
         AgwebAdapter(config.get("agweb_adapter", {})),
         IndustryweekAdapter(config.get("industryweek_adapter", {})),

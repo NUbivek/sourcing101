@@ -368,6 +368,18 @@ agfunder_news_adapter:
   enabled: true
   url: "https://agfundernews.com/feed"
 
+agfunder_adapter:
+  enabled: true
+  url: "https://agfunder.com/portfolio/"
+
+eit_food_adapter:
+  enabled: true
+  url: "https://www.eitfood.eu/entrepreneurship/startups"
+
+foodbytes_adapter:
+  enabled: true
+  url: "https://foodbytesworld.com/"
+
 freightwaves_adapter:
   enabled: true
   url: "https://www.freightwaves.com/news/feed"

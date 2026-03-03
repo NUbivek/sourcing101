@@ -1,6 +1,7 @@
 from startup_watch.adapters.a16z import A16zAdapter
 from startup_watch.adapters.agdaily import AgdailyAdapter
 from startup_watch.adapters.agfunder_news import AgfunderNewsAdapter
+from startup_watch.adapters.agfunder import AgfunderAdapter
 from startup_watch.adapters.agfunder_pod import AgfunderPodAdapter
 from startup_watch.adapters.agriinvestor import AgriinvestorAdapter
 from startup_watch.adapters.agweb import AgwebAdapter
@@ -17,6 +18,7 @@ from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.dealroom import DealroomAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.foodbytes import FoodbytesAdapter
 from startup_watch.adapters.gust import GustAdapter
 from startup_watch.adapters.fivehundred_global import FivehundredGlobalAdapter
 from startup_watch.adapters.hackernews import HackernewsAdapter
@@ -24,6 +26,7 @@ from startup_watch.adapters.harvard_ilab import HarvardIlabAdapter
 from startup_watch.adapters.eu_startups import EuStartupsAdapter
 from startup_watch.adapters.enterprise_ireland import EnterpriseIrelandAdapter
 from startup_watch.adapters.eth_pioneer import EthPioneerAdapter
+from startup_watch.adapters.eit_food import EitFoodAdapter
 from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
 from startup_watch.adapters.future_ag import FutureAgAdapter
@@ -72,6 +75,7 @@ __all__ = [
     "A16zAdapter",
     "AgdailyAdapter",
     "AgfunderNewsAdapter",
+    "AgfunderAdapter",
     "AgfunderPodAdapter",
     "AgriinvestorAdapter",
     "AgwebAdapter",
@@ -88,6 +92,7 @@ __all__ = [
     "BetalistAdapter",
     "DealroomAdapter",
     "FreightwavesAdapter",
+    "FoodbytesAdapter",
     "GustAdapter",
     "FivehundredGlobalAdapter",
     "HackernewsAdapter",
@@ -95,6 +100,7 @@ __all__ = [
     "EuStartupsAdapter",
     "EnterpriseIrelandAdapter",
     "EthPioneerAdapter",
+    "EitFoodAdapter",
     "F6sAdapter",
     "FirstroundAdapter",
     "FutureAgAdapter",
