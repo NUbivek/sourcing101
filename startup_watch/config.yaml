@@ -563,3 +563,15 @@ vccircle_adapter:
 techpoint_africa_adapter:
   enabled: true
   url: "https://techpoint.africa/feed/"
+
+disruptafrica_adapter:
+  enabled: true
+  url: "https://disruptafrica.com/feed/"
+
+vested_adapter:
+  enabled: true
+  url: "https://vested.co.in/feed/"
+
+therecursive_adapter:
+  enabled: true
+  url: "https://therecursive.com/feed/"
