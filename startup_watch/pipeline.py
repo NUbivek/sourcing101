@@ -22,12 +22,15 @@ from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.linkedin import LinkedInAdapter
 from startup_watch.adapters.industryweek import IndustryweekAdapter
 from startup_watch.adapters.iiot_world import IiotWorldAdapter
+from startup_watch.adapters.indiehackers import IndiehackersAdapter
 from startup_watch.adapters.logisticsmgmt import LogisticsmgmtAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
 from startup_watch.adapters.pitchbook_blog import PitchbookBlogAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
+from startup_watch.adapters.reddit_startups import RedditStartupsAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.hackernews import HackernewsAdapter
 from startup_watch.adapters.eu_startups import EuStartupsAdapter
 from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
@@ -101,6 +104,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         SeedtableAdapter(config.get("seedtable_adapter", {})),
         TracticaAiAdapter(config.get("tractica_ai_adapter", {})),
         IiotWorldAdapter(config.get("iiot_world_adapter", {})),
+        HackernewsAdapter(config.get("hackernews_adapter", {})),
+        RedditStartupsAdapter(config.get("reddit_startups_adapter", {})),
+        IndiehackersAdapter(config.get("indiehackers_adapter", {})),
         TechcrunchFundingAdapter(config.get("techcrunch_funding_adapter", {})),
         AgfunderNewsAdapter(config.get("agfunder_news_adapter", {})),
         AgfunderPodAdapter(config.get("agfunder_pod_adapter", {})),

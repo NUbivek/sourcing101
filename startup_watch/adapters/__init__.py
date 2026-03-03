@@ -13,12 +13,14 @@ from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.dealroom import DealroomAdapter
 from startup_watch.adapters.freightwaves import FreightwavesAdapter
+from startup_watch.adapters.hackernews import HackernewsAdapter
 from startup_watch.adapters.eu_startups import EuStartupsAdapter
 from startup_watch.adapters.f6s import F6sAdapter
 from startup_watch.adapters.firstround import FirstroundAdapter
 from startup_watch.adapters.future_ag import FutureAgAdapter
 from startup_watch.adapters.industryweek import IndustryweekAdapter
 from startup_watch.adapters.iiot_world import IiotWorldAdapter
+from startup_watch.adapters.indiehackers import IndiehackersAdapter
 from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
 from startup_watch.adapters.linkedin import LinkedInAdapter
 from startup_watch.adapters.logisticsmgmt import LogisticsmgmtAdapter
@@ -30,6 +32,7 @@ from startup_watch.adapters.openvc import OpenvcAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
 from startup_watch.adapters.pitchbook_blog import PitchbookBlogAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
+from startup_watch.adapters.reddit_startups import RedditStartupsAdapter
 from startup_watch.adapters.s2g_companies import S2gCompaniesAdapter
 from startup_watch.adapters.seedtable import SeedtableAdapter
 from startup_watch.adapters.sequoia import SequoiaAdapter
@@ -66,12 +69,14 @@ __all__ = [
     "BetalistAdapter",
     "DealroomAdapter",
     "FreightwavesAdapter",
+    "HackernewsAdapter",
     "EuStartupsAdapter",
     "F6sAdapter",
     "FirstroundAdapter",
     "FutureAgAdapter",
     "IndustryweekAdapter",
     "IiotWorldAdapter",
+    "IndiehackersAdapter",
     "IotAnalyticsAdapter",
     "LinkedInAdapter",
     "LogisticsmgmtAdapter",
@@ -83,6 +88,7 @@ __all__ = [
     "PlugandplayScAdapter",
     "PitchbookBlogAdapter",
     "ProducthuntAdapter",
+    "RedditStartupsAdapter",
     "S2gCompaniesAdapter",
     "SeedtableAdapter",
     "SequoiaAdapter",

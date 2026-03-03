@@ -288,6 +288,18 @@ iiot_world_adapter:
   enabled: true
   url: "https://iiot-world.com/feed/"
 
+hackernews_adapter:
+  enabled: true
+  url: "https://hnrss.org/newest"
+
+reddit_startups_adapter:
+  enabled: true
+  url: "https://www.reddit.com/r/startups/.rss"
+
+indiehackers_adapter:
+  enabled: true
+  url: "https://www.indiehackers.com/feed"
+
 techcrunch_funding_adapter:
   enabled: true
   url: "https://techcrunch.com/category/funding/feed/"
