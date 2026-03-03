@@ -461,3 +461,15 @@ mfg_dive_adapter:
 industryweek_adapter:
   enabled: true
   url: "https://www.industryweek.com/rss"
+
+techfundingnews_adapter:
+  enabled: true
+  url: "https://techfundingnews.com/feed/"
+
+greenqueen_adapter:
+  enabled: true
+  url: "https://www.greenqueen.com.hk/feed"
+
+finsmes_adapter:
+  enabled: true
+  url: "https://www.finsmes.com/feed"

@@ -70,8 +70,11 @@ from startup_watch.adapters.seedtable import SeedtableAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
 from startup_watch.adapters.tech_eu import TechEuAdapter
 from startup_watch.adapters.techstars import TechstarsAdapter
+from startup_watch.adapters.techfundingnews import TechfundingnewsAdapter
 from startup_watch.adapters.tractica_ai import TracticaAiAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
+from startup_watch.adapters.greenqueen import GreenqueenAdapter
+from startup_watch.adapters.finsmes import FinsmesAdapter
 from startup_watch.adapters.sustainability_mag import SustainabilityMagAdapter
 from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
 from startup_watch.adapters.therobotreport import TherobotreportAdapter
@@ -169,6 +172,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         TherobotreportAdapter(config.get("therobotreport_adapter", {})),
         VenturebeatAiAdapter(config.get("venturebeat_ai_adapter", {})),
         SupplychainbrainAdapter(config.get("supplychainbrain_adapter", {})),
+        TechfundingnewsAdapter(config.get("techfundingnews_adapter", {})),
+        GreenqueenAdapter(config.get("greenqueen_adapter", {})),
+        FinsmesAdapter(config.get("finsmes_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:
