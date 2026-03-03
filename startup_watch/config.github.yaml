@@ -521,3 +521,15 @@ latitud_adapter:
 refreshmiami_adapter:
   enabled: true
   url: "https://refreshmiami.com/feed/"
+
+geekwire_adapter:
+  enabled: true
+  url: "https://www.geekwire.com/startups/feed/"
+
+thenextweb_adapter:
+  enabled: true
+  url: "https://thenextweb.com/feed"
+
+e27_adapter:
+  enabled: true
+  url: "https://e27.co/feed"

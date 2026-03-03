@@ -84,6 +84,9 @@ from startup_watch.adapters.unicornnest import UnicornnestAdapter
 from startup_watch.adapters.startupnewsfyi import StartupnewsfyiAdapter
 from startup_watch.adapters.latitud import LatitudAdapter
 from startup_watch.adapters.refreshmiami import RefreshmiamiAdapter
+from startup_watch.adapters.geekwire import GeekwireAdapter
+from startup_watch.adapters.thenextweb import ThenextwebAdapter
+from startup_watch.adapters.e27 import E27Adapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -199,6 +202,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         StartupnewsfyiAdapter(config.get("startupnewsfyi_adapter", {})),
         LatitudAdapter(config.get("latitud_adapter", {})),
         RefreshmiamiAdapter(config.get("refreshmiami_adapter", {})),
+        GeekwireAdapter(config.get("geekwire_adapter", {})),
+        ThenextwebAdapter(config.get("thenextweb_adapter", {})),
+        E27Adapter(config.get("e27_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:
