@@ -569,3 +569,15 @@ vested_adapter:
 therecursive_adapter:
   enabled: true
   url: "https://therecursive.com/feed/"
+
+siliconrepublic_adapter:
+  enabled: true
+  url: "https://www.siliconrepublic.com/feed"
+
+itweb_africa_adapter:
+  enabled: true
+  url: "https://www.itweb.co.za/rss/itnews/africa"
+
+startupill_adapter:
+  enabled: true
+  url: "https://startupill.com/feed/"
