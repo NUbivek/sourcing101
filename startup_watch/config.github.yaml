@@ -485,3 +485,15 @@ vestbee_adapter:
 startupdaily_adapter:
   enabled: true
   url: "https://www.startupdaily.net/feed/"
+
+techinasia_adapter:
+  enabled: true
+  url: "https://www.techinasia.com/feed"
+
+yourstory_adapter:
+  enabled: true
+  url: "https://yourstory.com/feed"
+
+builtin_adapter:
+  enabled: true
+  url: "https://builtin.com/rss"
