@@ -78,6 +78,9 @@ from startup_watch.adapters.vestbee import VestbeeAdapter
 from startup_watch.adapters.startupdaily import StartupdailyAdapter
 from startup_watch.adapters.yourstory import YourstoryAdapter
 from startup_watch.adapters.builtin import BuiltinAdapter
+from startup_watch.adapters.euvc import EuvcAdapter
+from startup_watch.adapters.sifted_news import SiftedNewsAdapter
+from startup_watch.adapters.unicornnest import UnicornnestAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -187,6 +190,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         TechinasiaAdapter(config.get("techinasia_adapter", {})),
         YourstoryAdapter(config.get("yourstory_adapter", {})),
         BuiltinAdapter(config.get("builtin_adapter", {})),
+        EuvcAdapter(config.get("euvc_adapter", {})),
+        SiftedNewsAdapter(config.get("sifted_news_adapter", {})),
+        UnicornnestAdapter(config.get("unicornnest_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:

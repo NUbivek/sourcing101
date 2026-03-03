@@ -497,3 +497,15 @@ yourstory_adapter:
 builtin_adapter:
   enabled: true
   url: "https://builtin.com/rss"
+
+euvc_adapter:
+  enabled: true
+  url: "https://www.euvc.co/feed"
+
+sifted_news_adapter:
+  enabled: true
+  url: "https://sifted.eu/feed"
+
+unicornnest_adapter:
+  enabled: true
+  url: "https://unicorn-nest.com/feed/"
