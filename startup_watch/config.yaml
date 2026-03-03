@@ -515,3 +515,15 @@ sifted_news_adapter:
 unicornnest_adapter:
   enabled: true
   url: "https://unicorn-nest.com/feed/"
+
+startupnewsfyi_adapter:
+  enabled: true
+  url: "https://startupnews.fyi/feed"
+
+latitud_adapter:
+  enabled: true
+  url: "https://www.latitud.com/blog/rss.xml"
+
+refreshmiami_adapter:
+  enabled: true
+  url: "https://refreshmiami.com/feed/"
