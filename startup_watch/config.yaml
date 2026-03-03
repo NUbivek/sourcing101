@@ -194,6 +194,18 @@ alchemist_adapter:
   enabled: true
   url: "https://www.alchemistaccelerator.com/portfolio"
 
+masschallenge_adapter:
+  enabled: true
+  url: "https://masschallenge.org/our-community/startups/"
+
+plugandplay_food_adapter:
+  enabled: true
+  url: "https://www.plugandplaytechcenter.com/food/"
+
+startupland_adapter:
+  enabled: true
+  url: "https://www.startupland.news/feed"
+
 plugandplay_sc_adapter:
   enabled: true
   url: "https://www.businesswire.com/news/home/20190826005090/en/Plug-and-Play-Supply-Chain-Batch-Four-Showcases-16-Startups-in-Silicon-Valley"

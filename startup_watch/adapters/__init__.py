@@ -37,6 +37,7 @@ from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
 from startup_watch.adapters.linkedin import LinkedInAdapter
 from startup_watch.adapters.logisticsmgmt import LogisticsmgmtAdapter
 from startup_watch.adapters.manufacturing_net import ManufacturingNetAdapter
+from startup_watch.adapters.masschallenge import MasschallengeAdapter
 from startup_watch.adapters.mfg_dive import MfgDiveAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.mmh import MmhAdapter
@@ -44,6 +45,7 @@ from startup_watch.adapters.owler import OwlerAdapter
 from startup_watch.adapters.oxford_foundry import OxfordFoundryAdapter
 from startup_watch.adapters.openvc import OpenvcAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
+from startup_watch.adapters.plugandplay_food import PlugandplayFoodAdapter
 from startup_watch.adapters.pitchbook_blog import PitchbookBlogAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.reddit_startups import RedditStartupsAdapter
@@ -56,6 +58,7 @@ from startup_watch.adapters.smart_industry import SmartIndustryAdapter
 from startup_watch.adapters.spendmatters import SpendmattersAdapter
 from startup_watch.adapters.stanford_startx import StanfordStartxAdapter
 from startup_watch.adapters.startupstream import StartupStreamAdapter
+from startup_watch.adapters.startupland import StartuplandAdapter
 from startup_watch.adapters.startup_genome import StartupGenomeAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.sustainability_mag import SustainabilityMagAdapter
@@ -111,6 +114,7 @@ __all__ = [
     "LinkedInAdapter",
     "LogisticsmgmtAdapter",
     "ManufacturingNetAdapter",
+    "MasschallengeAdapter",
     "MfgDiveAdapter",
     "MitDeltavAdapter",
     "MmhAdapter",
@@ -118,6 +122,7 @@ __all__ = [
     "OxfordFoundryAdapter",
     "OpenvcAdapter",
     "PlugandplayScAdapter",
+    "PlugandplayFoodAdapter",
     "PitchbookBlogAdapter",
     "ProducthuntAdapter",
     "RedditStartupsAdapter",
@@ -130,6 +135,7 @@ __all__ = [
     "SpendmattersAdapter",
     "StanfordStartxAdapter",
     "StartupStreamAdapter",
+    "StartuplandAdapter",
     "StartupGenomeAdapter",
     "SupplychainbrainAdapter",
     "SustainabilityMagAdapter",

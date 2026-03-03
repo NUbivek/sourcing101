@@ -31,6 +31,7 @@ from startup_watch.adapters.indiehackers import IndiehackersAdapter
 from startup_watch.adapters.logisticsmgmt import LogisticsmgmtAdapter
 from startup_watch.adapters.mit_deltav import MitDeltavAdapter
 from startup_watch.adapters.plugandplay_sc import PlugandplayScAdapter
+from startup_watch.adapters.plugandplay_food import PlugandplayFoodAdapter
 from startup_watch.adapters.pitchbook_blog import PitchbookBlogAdapter
 from startup_watch.adapters.producthunt import ProducthuntAdapter
 from startup_watch.adapters.reddit_startups import RedditStartupsAdapter
@@ -49,6 +50,7 @@ from startup_watch.adapters.firstround import FirstroundAdapter
 from startup_watch.adapters.future_ag import FutureAgAdapter
 from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
 from startup_watch.adapters.manufacturing_net import ManufacturingNetAdapter
+from startup_watch.adapters.masschallenge import MasschallengeAdapter
 from startup_watch.adapters.mfg_dive import MfgDiveAdapter
 from startup_watch.adapters.mmh import MmhAdapter
 from startup_watch.adapters.owler import OwlerAdapter
@@ -57,6 +59,7 @@ from startup_watch.adapters.openvc import OpenvcAdapter
 from startup_watch.adapters.sequoia import SequoiaAdapter
 from startup_watch.adapters.stanford_startx import StanfordStartxAdapter
 from startup_watch.adapters.startupstream import StartupStreamAdapter
+from startup_watch.adapters.startupland import StartuplandAdapter
 from startup_watch.adapters.startup_genome import StartupGenomeAdapter
 from startup_watch.adapters.smart_industry import SmartIndustryAdapter
 from startup_watch.adapters.skydeck_fund import SkydeckFundAdapter
@@ -108,6 +111,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         FivehundredGlobalAdapter(config.get("fivehundred_global_adapter", {})),
         AntlerAdapter(config.get("antler_adapter", {})),
         AlchemistAdapter(config.get("alchemist_adapter", {})),
+        MasschallengeAdapter(config.get("masschallenge_adapter", {})),
+        PlugandplayFoodAdapter(config.get("plugandplay_food_adapter", {})),
+        StartuplandAdapter(config.get("startupland_adapter", {})),
         PlugandplayScAdapter(config.get("plugandplay_sc_adapter", {})),
         ThriveAgtechAdapter(config.get("thrive_agtech_adapter", {})),
         A16zAdapter(config.get("a16z_adapter", {})),
