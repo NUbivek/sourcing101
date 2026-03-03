@@ -545,3 +545,15 @@ entrepreneurshiplife_adapter:
 innovationorigins_adapter:
   enabled: true
   url: "https://innovationorigins.com/en/feed/"
+
+startupsmagazine_adapter:
+  enabled: true
+  url: "https://startupsmagazine.co.uk/rss.xml"
+
+vccircle_adapter:
+  enabled: true
+  url: "https://www.vccircle.com/feed"
+
+techpoint_africa_adapter:
+  enabled: true
+  url: "https://techpoint.africa/feed/"
