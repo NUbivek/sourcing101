@@ -294,6 +294,18 @@ tech_eu_adapter:
   enabled: true
   url: "https://tech.eu/feed/"
 
+cleanenergywire_adapter:
+  enabled: true
+  url: "https://www.cleanenergywire.org/rss.xml"
+
+sustainability_mag_adapter:
+  enabled: true
+  url: "https://sustainabilitymag.com/rss"
+
+climateinsider_adapter:
+  enabled: true
+  url: "https://climateinsider.com/feed/"
+
 angellist_startups_adapter:
   enabled: true
   url: "https://wellfound.com/discover/startups"

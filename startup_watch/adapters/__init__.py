@@ -10,7 +10,9 @@ from startup_watch.adapters.alchemist import AlchemistAdapter
 from startup_watch.adapters.atdc import AtdcAdapter
 from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
 from startup_watch.adapters.cornell_tech import CornellTechAdapter
+from startup_watch.adapters.climateinsider import ClimateinsiderAdapter
 from startup_watch.adapters.crunchbase_news import CrunchbaseNewsAdapter
+from startup_watch.adapters.cleanenergywire import CleanenergywireAdapter
 from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
 from startup_watch.adapters.dealroom import DealroomAdapter
@@ -53,6 +55,7 @@ from startup_watch.adapters.stanford_startx import StanfordStartxAdapter
 from startup_watch.adapters.startupstream import StartupStreamAdapter
 from startup_watch.adapters.startup_genome import StartupGenomeAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
+from startup_watch.adapters.sustainability_mag import SustainabilityMagAdapter
 from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.techcrunch_funding import TechcrunchFundingAdapter
 from startup_watch.adapters.tech_eu import TechEuAdapter
@@ -78,7 +81,9 @@ __all__ = [
     "AtdcAdapter",
     "BerkeleySkydeckAdapter",
     "CornellTechAdapter",
+    "ClimateinsiderAdapter",
     "CrunchbaseNewsAdapter",
+    "CleanenergywireAdapter",
     "BessemerAdapter",
     "BetalistAdapter",
     "DealroomAdapter",
@@ -121,6 +126,7 @@ __all__ = [
     "StartupStreamAdapter",
     "StartupGenomeAdapter",
     "SupplychainbrainAdapter",
+    "SustainabilityMagAdapter",
     "SupplychaindiveAdapter",
     "TechcrunchFundingAdapter",
     "TechEuAdapter",

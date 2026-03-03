@@ -17,7 +17,9 @@ from startup_watch.adapters.atdc import AtdcAdapter
 from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
 from startup_watch.adapters.dealroom import DealroomAdapter
 from startup_watch.adapters.cornell_tech import CornellTechAdapter
+from startup_watch.adapters.climateinsider import ClimateinsiderAdapter
 from startup_watch.adapters.crunchbase_news import CrunchbaseNewsAdapter
+from startup_watch.adapters.cleanenergywire import CleanenergywireAdapter
 from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
@@ -64,6 +66,7 @@ from startup_watch.adapters.tech_eu import TechEuAdapter
 from startup_watch.adapters.techstars import TechstarsAdapter
 from startup_watch.adapters.tractica_ai import TracticaAiAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
+from startup_watch.adapters.sustainability_mag import SustainabilityMagAdapter
 from startup_watch.adapters.thrive_agtech import ThriveAgtechAdapter
 from startup_watch.adapters.therobotreport import TherobotreportAdapter
 from startup_watch.adapters.wellfound import WellfoundAdapter
@@ -119,6 +122,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         GustAdapter(config.get("gust_adapter", {})),
         EnterpriseIrelandAdapter(config.get("enterprise_ireland_adapter", {})),
         TechEuAdapter(config.get("tech_eu_adapter", {})),
+        CleanenergywireAdapter(config.get("cleanenergywire_adapter", {})),
+        SustainabilityMagAdapter(config.get("sustainability_mag_adapter", {})),
+        ClimateinsiderAdapter(config.get("climateinsider_adapter", {})),
         AngellistStartupsAdapter(config.get("angellist_startups_adapter", {})),
         EuStartupsAdapter(config.get("eu_startups_adapter", {})),
         FutureAgAdapter(config.get("future_ag_adapter", {})),
