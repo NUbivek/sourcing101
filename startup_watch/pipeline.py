@@ -17,6 +17,7 @@ from startup_watch.adapters.atdc import AtdcAdapter
 from startup_watch.adapters.berkeley_skydeck import BerkeleySkydeckAdapter
 from startup_watch.adapters.dealroom import DealroomAdapter
 from startup_watch.adapters.cornell_tech import CornellTechAdapter
+from startup_watch.adapters.crunchbase_news import CrunchbaseNewsAdapter
 from startup_watch.adapters.bessemer import BessemerAdapter
 from startup_watch.adapters.supplychaindive import SupplychaindiveAdapter
 from startup_watch.adapters.betalist import BetalistAdapter
@@ -41,10 +42,12 @@ from startup_watch.adapters.iot_analytics import IotAnalyticsAdapter
 from startup_watch.adapters.manufacturing_net import ManufacturingNetAdapter
 from startup_watch.adapters.mfg_dive import MfgDiveAdapter
 from startup_watch.adapters.mmh import MmhAdapter
+from startup_watch.adapters.owler import OwlerAdapter
 from startup_watch.adapters.openvc import OpenvcAdapter
 from startup_watch.adapters.sequoia import SequoiaAdapter
 from startup_watch.adapters.stanford_startx import StanfordStartxAdapter
 from startup_watch.adapters.startupstream import StartupStreamAdapter
+from startup_watch.adapters.startup_genome import StartupGenomeAdapter
 from startup_watch.adapters.smart_industry import SmartIndustryAdapter
 from startup_watch.adapters.skydeck_fund import SkydeckFundAdapter
 from startup_watch.adapters.sifted import SiftedAdapter
@@ -101,6 +104,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         DealroomAdapter(config.get("dealroom_adapter", {})),
         F6sAdapter(config.get("f6s_adapter", {})),
         OpenvcAdapter(config.get("openvc_adapter", {})),
+        StartupGenomeAdapter(config.get("startup_genome_adapter", {})),
+        OwlerAdapter(config.get("owler_adapter", {})),
+        CrunchbaseNewsAdapter(config.get("crunchbase_news_adapter", {})),
         AngellistStartupsAdapter(config.get("angellist_startups_adapter", {})),
         EuStartupsAdapter(config.get("eu_startups_adapter", {})),
         FutureAgAdapter(config.get("future_ag_adapter", {})),

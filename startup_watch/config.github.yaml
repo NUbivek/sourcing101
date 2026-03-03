@@ -258,6 +258,18 @@ openvc_adapter:
   enabled: true
   url: "https://www.openvc.app/startups"
 
+startup_genome_adapter:
+  enabled: true
+  url: "https://startupgenome.com/ecosystems"
+
+owler_adapter:
+  enabled: true
+  url: "https://www.owler.com/company"
+
+crunchbase_news_adapter:
+  enabled: true
+  url: "https://news.crunchbase.com/feed/"
+
 angellist_startups_adapter:
   enabled: true
   url: "https://wellfound.com/discover/startups"
