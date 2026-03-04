@@ -111,6 +111,9 @@ from startup_watch.adapters.tech_ish import TechIshAdapter
 from startup_watch.adapters.techmoran import TechmoranAdapter
 from startup_watch.adapters.memeburn import MemeburnAdapter
 from startup_watch.adapters.weetracker import WeetrackerAdapter
+from startup_watch.adapters.techweez import TechweezAdapter
+from startup_watch.adapters.ventureburn import VentureburnAdapter
+from startup_watch.adapters.venturesafrica import VenturesafricaAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -253,6 +256,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         TechmoranAdapter(config.get("techmoran_adapter", {})),
         MemeburnAdapter(config.get("memeburn_adapter", {})),
         WeetrackerAdapter(config.get("weetracker_adapter", {})),
+        TechweezAdapter(config.get("techweez_adapter", {})),
+        VentureburnAdapter(config.get("ventureburn_adapter", {})),
+        VenturesafricaAdapter(config.get("venturesafrica_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:

@@ -635,3 +635,15 @@ memeburn_adapter:
 weetracker_adapter:
   enabled: true
   url: "https://weetracker.com/feed/"
+
+techweez_adapter:
+  enabled: true
+  url: "https://techweez.com/feed/"
+
+ventureburn_adapter:
+  enabled: true
+  url: "https://ventureburn.com/feed/"
+
+venturesafrica_adapter:
+  enabled: true
+  url: "https://venturesafrica.com/feed/"
