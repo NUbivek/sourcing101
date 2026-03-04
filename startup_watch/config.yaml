@@ -659,3 +659,15 @@ entrackr_adapter:
 dealstreetasia_adapter:
   enabled: true
   url: "https://www.dealstreetasia.com/feed/"
+
+techloy_adapter:
+  enabled: true
+  url: "https://techloy.com/feed/"
+
+kr_asia_adapter:
+  enabled: true
+  url: "https://kr-asia.com/feed/"
+
+technode_adapter:
+  enabled: true
+  url: "https://technode.com/feed/"

@@ -117,6 +117,9 @@ from startup_watch.adapters.venturesafrica import VenturesafricaAdapter
 from startup_watch.adapters.inc42 import Inc42Adapter
 from startup_watch.adapters.entrackr import EntrackrAdapter
 from startup_watch.adapters.dealstreetasia import DealstreetasiaAdapter
+from startup_watch.adapters.techloy import TechloyAdapter
+from startup_watch.adapters.kr_asia import KrAsiaAdapter
+from startup_watch.adapters.technode import TechnodeAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -265,6 +268,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         Inc42Adapter(config.get("inc42_adapter", {})),
         EntrackrAdapter(config.get("entrackr_adapter", {})),
         DealstreetasiaAdapter(config.get("dealstreetasia_adapter", {})),
+        TechloyAdapter(config.get("techloy_adapter", {})),
+        KrAsiaAdapter(config.get("kr_asia_adapter", {})),
+        TechnodeAdapter(config.get("technode_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:
