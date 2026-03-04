@@ -671,3 +671,15 @@ kr_asia_adapter:
 technode_adapter:
   enabled: true
   url: "https://technode.com/feed/"
+
+techsauce_adapter:
+  enabled: true
+  url: "https://techsauce.co/en/feed"
+
+echelonasia_adapter:
+  enabled: true
+  url: "https://e27.co/feed"
+
+technin_asia_adapter:
+  enabled: true
+  url: "https://techninasia.com/feed/"
