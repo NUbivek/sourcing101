@@ -605,3 +605,15 @@ benjamindada_adapter:
 technext_ng_adapter:
   enabled: true
   url: "https://technext24.com/feed/"
+
+techafricanews_adapter:
+  enabled: true
+  url: "https://techafricanews.com/feed/"
+
+techtrendske_adapter:
+  enabled: true
+  url: "https://techtrendske.co.ke/feed/"
+
+tech_ish_adapter:
+  enabled: true
+  url: "https://tech-ish.com/feed/"
