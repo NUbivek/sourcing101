@@ -581,3 +581,15 @@ itweb_africa_adapter:
 startupill_adapter:
   enabled: true
   url: "https://startupill.com/feed/"
+
+devdiscourse_adapter:
+  enabled: true
+  url: "https://www.devdiscourse.com/rss/technology"
+
+techbuild_africa_adapter:
+  enabled: true
+  url: "https://techbuild.africa/feed/"
+
+futurescot_adapter:
+  enabled: true
+  url: "https://futurescot.com/feed/"

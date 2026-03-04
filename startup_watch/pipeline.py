@@ -99,6 +99,9 @@ from startup_watch.adapters.therecursive import TherecursiveAdapter
 from startup_watch.adapters.siliconrepublic import SiliconrepublicAdapter
 from startup_watch.adapters.itweb_africa import ItwebAfricaAdapter
 from startup_watch.adapters.startupill import StartupillAdapter
+from startup_watch.adapters.devdiscourse import DevdiscourseAdapter
+from startup_watch.adapters.techbuild_africa import TechbuildAfricaAdapter
+from startup_watch.adapters.futurescot import FuturescotAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -229,6 +232,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         SiliconrepublicAdapter(config.get("siliconrepublic_adapter", {})),
         ItwebAfricaAdapter(config.get("itweb_africa_adapter", {})),
         StartupillAdapter(config.get("startupill_adapter", {})),
+        DevdiscourseAdapter(config.get("devdiscourse_adapter", {})),
+        TechbuildAfricaAdapter(config.get("techbuild_africa_adapter", {})),
+        FuturescotAdapter(config.get("futurescot_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:
