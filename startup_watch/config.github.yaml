@@ -593,3 +593,15 @@ techbuild_africa_adapter:
 futurescot_adapter:
   enabled: true
   url: "https://futurescot.com/feed/"
+
+techcabal_adapter:
+  enabled: true
+  url: "https://techcabal.com/feed/"
+
+benjamindada_adapter:
+  enabled: true
+  url: "https://www.benjamindada.com/feed/"
+
+technext_ng_adapter:
+  enabled: true
+  url: "https://technext24.com/feed/"
