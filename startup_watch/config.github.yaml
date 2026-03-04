@@ -641,3 +641,15 @@ ventureburn_adapter:
 venturesafrica_adapter:
   enabled: true
   url: "https://venturesafrica.com/feed/"
+
+inc42_adapter:
+  enabled: true
+  url: "https://inc42.com/feed/"
+
+entrackr_adapter:
+  enabled: true
+  url: "https://entrackr.com/feed/"
+
+dealstreetasia_adapter:
+  enabled: true
+  url: "https://www.dealstreetasia.com/feed/"
