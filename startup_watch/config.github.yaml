@@ -617,3 +617,15 @@ techtrendske_adapter:
 tech_ish_adapter:
   enabled: true
   url: "https://tech-ish.com/feed/"
+
+techmoran_adapter:
+  enabled: true
+  url: "https://techmoran.com/feed/"
+
+memeburn_adapter:
+  enabled: true
+  url: "https://memeburn.com/feed/"
+
+weetracker_adapter:
+  enabled: true
+  url: "https://weetracker.com/feed/"
