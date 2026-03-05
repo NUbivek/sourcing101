@@ -1,6 +1,7 @@
 import csv
 import datetime as dt
 import os
+import time
 
 import yaml
 
@@ -251,8 +252,38 @@ def load_config(path: str) -> dict:
         return yaml.safe_load(handle)
 
 
+def fetch_with_resilience(
+    adapter: object,
+    logger: object,
+    retries: int,
+    backoff_seconds: float,
+) -> list[StartupSignal]:
+    attempts = max(1, retries + 1)
+    for attempt in range(1, attempts + 1):
+        try:
+            batch = adapter.fetch()
+            logger.info("adapter=%s signals=%s attempt=%s", adapter.source_name, len(batch), attempt)
+            return batch
+        except Exception as exc:  # pragma: no cover - defensive guardrail
+            logger.warning(
+                "adapter=%s attempt=%s/%s error=%s",
+                adapter.source_name,
+                attempt,
+                attempts,
+                exc,
+            )
+            if attempt < attempts and backoff_seconds > 0:
+                time.sleep(backoff_seconds * attempt)
+    return []
+
+
 def collect_signals(config: dict) -> list[StartupSignal]:
     logger = get_logger()
+    pipeline_cfg = config.get("pipeline", {})
+    retries = int(pipeline_cfg.get("adapter_retries", 1))
+    backoff_seconds = float(pipeline_cfg.get("adapter_backoff_seconds", 0.5))
+    delay_seconds = float(pipeline_cfg.get("adapter_delay_seconds", 0.0))
+
     adapters = [
         YCombinatorAdapter(config.get("yc_directory", {})),
         AgdailyAdapter(config.get("agdaily_adapter", {})),
@@ -491,10 +522,11 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         FoundersbriefingAdapter(config.get("foundersbriefing_adapter", {})),
     ]
     collected: list[StartupSignal] = []
-    for adapter in adapters:
-        batch = adapter.fetch()
-        logger.info("adapter=%s signals=%s", adapter.source_name, len(batch))
+    for index, adapter in enumerate(adapters):
+        batch = fetch_with_resilience(adapter, logger, retries=retries, backoff_seconds=backoff_seconds)
         collected.extend(batch)
+        if delay_seconds > 0 and index < len(adapters) - 1:
+            time.sleep(delay_seconds)
     return collected
 
 

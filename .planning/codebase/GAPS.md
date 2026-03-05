@@ -1,8 +1,14 @@
 # GAPS
 
-1. Monolithic `startup_watch.py` should be modularized (schema/pipeline/adapters/logging).
-2. No robust adapter abstraction with per-source class contracts yet.
-3. Test coverage is minimal.
-4. Requirements pinning and dev dependency separation can be improved.
-5. Legacy OCR folder uses hardcoded absolute paths and needs portability cleanup.
-6. Observability/logging consistency can be improved (structured logs everywhere).
+## Closed
+
+1. Startup pipeline is modularized (`schema/pipeline/filters/dedup/enrichment/logger` split).
+2. Adapter abstraction is standardized around `BaseAdapter` + per-source class contracts.
+3. Test coverage now includes broad adapter unit tests plus integration coverage.
+4. CI-safe workflow exists and runs weekly/manual with `config.github.yaml`.
+5. Pipeline resilience now includes adapter retries, backoff, and optional inter-adapter delay.
+
+## Remaining minor follow-ups (non-blocking)
+
+1. Legacy OCR folder portability cleanup (hardcoded absolute paths in old extraction scripts).
+2. Optional future enhancement: richer structured logging fields/JSON logger formatter.

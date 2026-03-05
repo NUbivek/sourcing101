@@ -1,5 +1,10 @@
 output_dir: "startup_watch/output"
 
+pipeline:
+  adapter_retries: 1
+  adapter_backoff_seconds: 0.5
+  adapter_delay_seconds: 0.0
+
 categories:
   - supply chain
   - logistics
