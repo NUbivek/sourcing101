@@ -953,3 +953,43 @@ thehumancapital_adapter:
 startupsatellite_adapter:
   enabled: true
   url: "https://startupsatellite.com/feed/"
+
+startupgenius_adapter:
+  enabled: true
+  url: "https://www.startupgenius.co/feed/"
+
+founderjar_adapter:
+  enabled: true
+  url: "https://www.founderjar.com/feed/"
+
+smallbiztrends_startups_adapter:
+  enabled: true
+  url: "https://smallbiztrends.com/category/startups/feed"
+
+startupgrind_blog_adapter:
+  enabled: true
+  url: "https://www.startupgrind.com/blog/rss/"
+
+forentrepreneurs_adapter:
+  enabled: true
+  url: "https://www.forentrepreneurs.com/feed/"
+
+bothsidesofthetable_adapter:
+  enabled: true
+  url: "https://bothsidesofthetable.com/feed"
+
+avc_blog_adapter:
+  enabled: true
+  url: "https://avc.com/feed/"
+
+feldthoughts_adapter:
+  enabled: true
+  url: "https://feld.com/feed/"
+
+saastr_blog_adapter:
+  enabled: true
+  url: "https://www.saastr.com/feed/"
+
+tomtunguz_adapter:
+  enabled: true
+  url: "https://tomtunguz.com/feed/"
