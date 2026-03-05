@@ -695,3 +695,27 @@ pandaily_adapter:
 wamda_adapter:
   enabled: true
   url: "https://www.wamda.com/feed"
+
+maddyness_adapter:
+  enabled: true
+  url: "https://www.maddyness.com/en/feed/"
+
+techfundingasia_adapter:
+  enabled: true
+  url: "https://techfundingasia.com/feed/"
+
+startupnewsasia_adapter:
+  enabled: true
+  url: "https://www.startupnews.asia/feed/"
+
+vietcetera_adapter:
+  enabled: true
+  url: "https://vietcetera.com/en/feed"
+
+bloomingstartup_adapter:
+  enabled: true
+  url: "https://www.bloomingstartups.com/feed"
+
+africanbusiness_tech_adapter:
+  enabled: true
+  url: "https://african.business/category/technology/feed/"

@@ -126,6 +126,12 @@ from startup_watch.adapters.technin_asia import TechninAsiaAdapter
 from startup_watch.adapters.vulcanpost import VulcanpostAdapter
 from startup_watch.adapters.pandaily import PandailyAdapter
 from startup_watch.adapters.wamda import WamdaAdapter
+from startup_watch.adapters.maddyness import MaddynessAdapter
+from startup_watch.adapters.techfundingasia import TechfundingasiaAdapter
+from startup_watch.adapters.startupnewsasia import StartupnewsasiaAdapter
+from startup_watch.adapters.vietcetera import VietceteraAdapter
+from startup_watch.adapters.bloomingstartup import BloomingstartupAdapter
+from startup_watch.adapters.africanbusiness_tech import AfricanbusinessTechAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -283,6 +289,12 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         VulcanpostAdapter(config.get("vulcanpost_adapter", {})),
         PandailyAdapter(config.get("pandaily_adapter", {})),
         WamdaAdapter(config.get("wamda_adapter", {})),
+        MaddynessAdapter(config.get("maddyness_adapter", {})),
+        TechfundingasiaAdapter(config.get("techfundingasia_adapter", {})),
+        StartupnewsasiaAdapter(config.get("startupnewsasia_adapter", {})),
+        VietceteraAdapter(config.get("vietcetera_adapter", {})),
+        BloomingstartupAdapter(config.get("bloomingstartup_adapter", {})),
+        AfricanbusinessTechAdapter(config.get("africanbusiness_tech_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:
