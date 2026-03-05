@@ -833,3 +833,43 @@ technovagh_adapter:
 afritechie_adapter:
   enabled: true
   url: "https://afritechie.net/feed/"
+
+frenchweb_adapter:
+  enabled: true
+  url: "https://www.frenchweb.fr/feed/"
+
+maddyness_fr_adapter:
+  enabled: true
+  url: "https://www.maddyness.com/feed/"
+
+gruenderszene_adapter:
+  enabled: true
+  url: "https://www.businessinsider.de/gruenderszene/feed/"
+
+siliconallee_adapter:
+  enabled: true
+  url: "https://siliconallee.com/feed/"
+
+siftedeu_news_adapter:
+  enabled: true
+  url: "https://sifted.eu/feed"
+
+arcticstartup_adapter:
+  enabled: true
+  url: "https://arcticstartup.com/feed/"
+
+eu_startups_news_adapter:
+  enabled: true
+  url: "https://www.eu-startups.com/feed/"
+
+uktechnews_adapter:
+  enabled: true
+  url: "https://www.uktechnews.info/feed/"
+
+irishtechnews_adapter:
+  enabled: true
+  url: "https://irishtechnews.ie/feed/"
+
+techpluto_adapter:
+  enabled: true
+  url: "https://www.techpluto.com/feed/"

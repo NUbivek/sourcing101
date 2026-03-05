@@ -162,6 +162,16 @@ from startup_watch.adapters.smesouthafrica import SmesouthafricaAdapter
 from startup_watch.adapters.techawkng import TechawkngAdapter
 from startup_watch.adapters.technovagh import TechnovaghAdapter
 from startup_watch.adapters.afritechie import AfritechieAdapter
+from startup_watch.adapters.frenchweb import FrenchwebAdapter
+from startup_watch.adapters.maddyness_fr import MaddynessFrAdapter
+from startup_watch.adapters.gruenderszene import GruenderszeneAdapter
+from startup_watch.adapters.siliconallee import SiliconalleeAdapter
+from startup_watch.adapters.siftedeu_news import SiftedeuNewsAdapter
+from startup_watch.adapters.arcticstartup import ArcticstartupAdapter
+from startup_watch.adapters.eu_startups_news import EuStartupsNewsAdapter
+from startup_watch.adapters.uktechnews import UktechnewsAdapter
+from startup_watch.adapters.irishtechnews import IrishtechnewsAdapter
+from startup_watch.adapters.techpluto import TechplutoAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -355,6 +365,16 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         TechawkngAdapter(config.get("techawkng_adapter", {})),
         TechnovaghAdapter(config.get("technovagh_adapter", {})),
         AfritechieAdapter(config.get("afritechie_adapter", {})),
+        FrenchwebAdapter(config.get("frenchweb_adapter", {})),
+        MaddynessFrAdapter(config.get("maddyness_fr_adapter", {})),
+        GruenderszeneAdapter(config.get("gruenderszene_adapter", {})),
+        SiliconalleeAdapter(config.get("siliconallee_adapter", {})),
+        SiftedeuNewsAdapter(config.get("siftedeu_news_adapter", {})),
+        ArcticstartupAdapter(config.get("arcticstartup_adapter", {})),
+        EuStartupsNewsAdapter(config.get("eu_startups_news_adapter", {})),
+        UktechnewsAdapter(config.get("uktechnews_adapter", {})),
+        IrishtechnewsAdapter(config.get("irishtechnews_adapter", {})),
+        TechplutoAdapter(config.get("techpluto_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:
