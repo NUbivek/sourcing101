@@ -677,3 +677,15 @@ echelonasia_adapter:
 technin_asia_adapter:
   enabled: true
   url: "https://techninasia.com/feed/"
+
+vulcanpost_adapter:
+  enabled: true
+  url: "https://vulcanpost.com/feed/"
+
+pandaily_adapter:
+  enabled: true
+  url: "https://pandaily.com/feed"
+
+wamda_adapter:
+  enabled: true
+  url: "https://www.wamda.com/feed"

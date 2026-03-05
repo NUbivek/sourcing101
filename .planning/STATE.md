@@ -5,9 +5,9 @@ current_phase: adapter_coverage
 last_updated: 2026-03-04
 
 progress:
-  adapters_done: 129
+  adapters_done: 132
   adapters_target: 235
-  adapters_remaining: 106
+  adapters_remaining: 103
 
 tiers:
   tier_1_university: { done: 9, target: 17, remaining: 8 }

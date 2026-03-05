@@ -123,6 +123,9 @@ from startup_watch.adapters.technode import TechnodeAdapter
 from startup_watch.adapters.techsauce import TechsauceAdapter
 from startup_watch.adapters.echelonasia import EchelonasiaAdapter
 from startup_watch.adapters.technin_asia import TechninAsiaAdapter
+from startup_watch.adapters.vulcanpost import VulcanpostAdapter
+from startup_watch.adapters.pandaily import PandailyAdapter
+from startup_watch.adapters.wamda import WamdaAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -277,6 +280,9 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         TechsauceAdapter(config.get("techsauce_adapter", {})),
         EchelonasiaAdapter(config.get("echelonasia_adapter", {})),
         TechninAsiaAdapter(config.get("technin_asia_adapter", {})),
+        VulcanpostAdapter(config.get("vulcanpost_adapter", {})),
+        PandailyAdapter(config.get("pandaily_adapter", {})),
+        WamdaAdapter(config.get("wamda_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:
