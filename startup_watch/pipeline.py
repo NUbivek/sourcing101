@@ -202,6 +202,33 @@ from startup_watch.adapters.avc_blog import AvcBlogAdapter
 from startup_watch.adapters.feldthoughts import FeldthoughtsAdapter
 from startup_watch.adapters.saastr_blog import SaastrBlogAdapter
 from startup_watch.adapters.tomtunguz import TomtunguzAdapter
+from startup_watch.adapters.openhubstartup import OpenhubstartupAdapter
+from startup_watch.adapters.startuptalky import StartuptalkyAdapter
+from startup_watch.adapters.yourtechtoday import YourtechtodayAdapter
+from startup_watch.adapters.techsafariz import TechsafarizAdapter
+from startup_watch.adapters.africatechdaily import AfricatechdailyAdapter
+from startup_watch.adapters.startupnewszone import StartupnewszoneAdapter
+from startup_watch.adapters.venturefounders import VenturefoundersAdapter
+from startup_watch.adapters.newstartupmedia import NewstartupmediaAdapter
+from startup_watch.adapters.seedfundnews import SeedfundnewsAdapter
+from startup_watch.adapters.techpulsefounders import TechpulsefoundersAdapter
+from startup_watch.adapters.startupreporter import StartupreporterAdapter
+from startup_watch.adapters.foundersradar import FoundersradarAdapter
+from startup_watch.adapters.deeptechdigest import DeeptechdigestAdapter
+from startup_watch.adapters.futurefoundersnews import FuturefoundersnewsAdapter
+from startup_watch.adapters.nextventuredaily import NextventuredailyAdapter
+from startup_watch.adapters.startupwireglobal import StartupwireglobalAdapter
+from startup_watch.adapters.frontierstartups import FrontierstartupsAdapter
+from startup_watch.adapters.climatestartupsnews import ClimatestartupsnewsAdapter
+from startup_watch.adapters.industriousventures import IndustriousventuresAdapter
+from startup_watch.adapters.logisticstechnews import LogisticstechnewsAdapter
+from startup_watch.adapters.agxstartupnews import AgxstartupnewsAdapter
+from startup_watch.adapters.enterprisefoundry import EnterprisefoundryAdapter
+from startup_watch.adapters.seedstageinsider import SeedstageinsiderAdapter
+from startup_watch.adapters.vcsignalsdaily import VcsignalsdailyAdapter
+from startup_watch.adapters.startupcurrents import StartupcurrentsAdapter
+from startup_watch.adapters.venturechronicle import VenturechronicleAdapter
+from startup_watch.adapters.foundersbriefing import FoundersbriefingAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -435,6 +462,33 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         FeldthoughtsAdapter(config.get("feldthoughts_adapter", {})),
         SaastrBlogAdapter(config.get("saastr_blog_adapter", {})),
         TomtunguzAdapter(config.get("tomtunguz_adapter", {})),
+        OpenhubstartupAdapter(config.get("openhubstartup_adapter", {})),
+        StartuptalkyAdapter(config.get("startuptalky_adapter", {})),
+        YourtechtodayAdapter(config.get("yourtechtoday_adapter", {})),
+        TechsafarizAdapter(config.get("techsafariz_adapter", {})),
+        AfricatechdailyAdapter(config.get("africatechdaily_adapter", {})),
+        StartupnewszoneAdapter(config.get("startupnewszone_adapter", {})),
+        VenturefoundersAdapter(config.get("venturefounders_adapter", {})),
+        NewstartupmediaAdapter(config.get("newstartupmedia_adapter", {})),
+        SeedfundnewsAdapter(config.get("seedfundnews_adapter", {})),
+        TechpulsefoundersAdapter(config.get("techpulsefounders_adapter", {})),
+        StartupreporterAdapter(config.get("startupreporter_adapter", {})),
+        FoundersradarAdapter(config.get("foundersradar_adapter", {})),
+        DeeptechdigestAdapter(config.get("deeptechdigest_adapter", {})),
+        FuturefoundersnewsAdapter(config.get("futurefoundersnews_adapter", {})),
+        NextventuredailyAdapter(config.get("nextventuredaily_adapter", {})),
+        StartupwireglobalAdapter(config.get("startupwireglobal_adapter", {})),
+        FrontierstartupsAdapter(config.get("frontierstartups_adapter", {})),
+        ClimatestartupsnewsAdapter(config.get("climatestartupsnews_adapter", {})),
+        IndustriousventuresAdapter(config.get("industriousventures_adapter", {})),
+        LogisticstechnewsAdapter(config.get("logisticstechnews_adapter", {})),
+        AgxstartupnewsAdapter(config.get("agxstartupnews_adapter", {})),
+        EnterprisefoundryAdapter(config.get("enterprisefoundry_adapter", {})),
+        SeedstageinsiderAdapter(config.get("seedstageinsider_adapter", {})),
+        VcsignalsdailyAdapter(config.get("vcsignalsdaily_adapter", {})),
+        StartupcurrentsAdapter(config.get("startupcurrents_adapter", {})),
+        VenturechronicleAdapter(config.get("venturechronicle_adapter", {})),
+        FoundersbriefingAdapter(config.get("foundersbriefing_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:

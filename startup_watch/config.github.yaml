@@ -993,3 +993,111 @@ saastr_blog_adapter:
 tomtunguz_adapter:
   enabled: true
   url: "https://tomtunguz.com/feed/"
+
+openhubstartup_adapter:
+  enabled: true
+  url: "https://openhubstartup.com/feed/"
+
+startuptalky_adapter:
+  enabled: true
+  url: "https://startuptalky.com/feed/"
+
+yourtechtoday_adapter:
+  enabled: true
+  url: "https://yourtechtoday.com/feed/"
+
+techsafariz_adapter:
+  enabled: true
+  url: "https://techsafariz.com/feed/"
+
+africatechdaily_adapter:
+  enabled: true
+  url: "https://africatechdaily.com/feed/"
+
+startupnewszone_adapter:
+  enabled: true
+  url: "https://startupnewszone.com/feed/"
+
+venturefounders_adapter:
+  enabled: true
+  url: "https://venturefounders.com/feed/"
+
+newstartupmedia_adapter:
+  enabled: true
+  url: "https://newstartupmedia.com/feed/"
+
+seedfundnews_adapter:
+  enabled: true
+  url: "https://seedfundnews.com/feed/"
+
+techpulsefounders_adapter:
+  enabled: true
+  url: "https://techpulsefounders.com/feed/"
+
+startupreporter_adapter:
+  enabled: true
+  url: "https://startupreporter.net/feed/"
+
+foundersradar_adapter:
+  enabled: true
+  url: "https://foundersradar.com/feed/"
+
+deeptechdigest_adapter:
+  enabled: true
+  url: "https://deeptechdigest.com/feed/"
+
+futurefoundersnews_adapter:
+  enabled: true
+  url: "https://futurefoundersnews.com/feed/"
+
+nextventuredaily_adapter:
+  enabled: true
+  url: "https://nextventuredaily.com/feed/"
+
+startupwireglobal_adapter:
+  enabled: true
+  url: "https://startupwireglobal.com/feed/"
+
+frontierstartups_adapter:
+  enabled: true
+  url: "https://frontierstartups.com/feed/"
+
+climatestartupsnews_adapter:
+  enabled: true
+  url: "https://climatestartupsnews.com/feed/"
+
+industriousventures_adapter:
+  enabled: true
+  url: "https://industriousventures.com/feed/"
+
+logisticstechnews_adapter:
+  enabled: true
+  url: "https://logisticstechnews.com/feed/"
+
+agxstartupnews_adapter:
+  enabled: true
+  url: "https://agxstartupnews.com/feed/"
+
+enterprisefoundry_adapter:
+  enabled: true
+  url: "https://enterprisefoundry.com/feed/"
+
+seedstageinsider_adapter:
+  enabled: true
+  url: "https://seedstageinsider.com/feed/"
+
+vcsignalsdaily_adapter:
+  enabled: true
+  url: "https://vcsignalsdaily.com/feed/"
+
+startupcurrents_adapter:
+  enabled: true
+  url: "https://startupcurrents.com/feed/"
+
+venturechronicle_adapter:
+  enabled: true
+  url: "https://venturechronicle.com/feed/"
+
+foundersbriefing_adapter:
+  enabled: true
+  url: "https://foundersbriefing.com/feed/"
