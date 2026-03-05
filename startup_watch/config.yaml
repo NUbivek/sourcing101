@@ -799,3 +799,43 @@ nextbigwhat_adapter:
 techcircle_adapter:
   enabled: true
   url: "https://www.techcircle.in/feed"
+
+siliconangle_startups_adapter:
+  enabled: true
+  url: "https://siliconangle.com/tag/startup/feed/"
+
+readwrite_startups_adapter:
+  enabled: true
+  url: "https://readwrite.com/category/startups/feed/"
+
+techinformed_adapter:
+  enabled: true
+  url: "https://techinformed.com/feed/"
+
+startupdaily_africa_adapter:
+  enabled: true
+  url: "https://www.startupdaily.africa/feed/"
+
+techlabari_adapter:
+  enabled: true
+  url: "https://techlabari.com/feed/"
+
+innov8tiv_adapter:
+  enabled: true
+  url: "https://innov8tiv.com/feed/"
+
+smesouthafrica_adapter:
+  enabled: true
+  url: "https://smesouthafrica.co.za/feed/"
+
+techawkng_adapter:
+  enabled: true
+  url: "https://techawkng.com/feed/"
+
+technovagh_adapter:
+  enabled: true
+  url: "https://technovagh.com/feed/"
+
+afritechie_adapter:
+  enabled: true
+  url: "https://afritechie.net/feed/"

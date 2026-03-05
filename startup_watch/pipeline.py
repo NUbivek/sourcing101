@@ -152,6 +152,16 @@ from startup_watch.adapters.disfold_blog import DisfoldBlogAdapter
 from startup_watch.adapters.startupradius import StartupradiusAdapter
 from startup_watch.adapters.nextbigwhat import NextbigwhatAdapter
 from startup_watch.adapters.techcircle import TechcircleAdapter
+from startup_watch.adapters.siliconangle_startups import SiliconangleStartupsAdapter
+from startup_watch.adapters.readwrite_startups import ReadwriteStartupsAdapter
+from startup_watch.adapters.techinformed import TechinformedAdapter
+from startup_watch.adapters.startupdaily_africa import StartupdailyAfricaAdapter
+from startup_watch.adapters.techlabari import TechlabariAdapter
+from startup_watch.adapters.innov8tiv import Innov8tivAdapter
+from startup_watch.adapters.smesouthafrica import SmesouthafricaAdapter
+from startup_watch.adapters.techawkng import TechawkngAdapter
+from startup_watch.adapters.technovagh import TechnovaghAdapter
+from startup_watch.adapters.afritechie import AfritechieAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -335,6 +345,16 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         StartupradiusAdapter(config.get("startupradius_adapter", {})),
         NextbigwhatAdapter(config.get("nextbigwhat_adapter", {})),
         TechcircleAdapter(config.get("techcircle_adapter", {})),
+        SiliconangleStartupsAdapter(config.get("siliconangle_startups_adapter", {})),
+        ReadwriteStartupsAdapter(config.get("readwrite_startups_adapter", {})),
+        TechinformedAdapter(config.get("techinformed_adapter", {})),
+        StartupdailyAfricaAdapter(config.get("startupdaily_africa_adapter", {})),
+        TechlabariAdapter(config.get("techlabari_adapter", {})),
+        Innov8tivAdapter(config.get("innov8tiv_adapter", {})),
+        SmesouthafricaAdapter(config.get("smesouthafrica_adapter", {})),
+        TechawkngAdapter(config.get("techawkng_adapter", {})),
+        TechnovaghAdapter(config.get("technovagh_adapter", {})),
+        AfritechieAdapter(config.get("afritechie_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:
