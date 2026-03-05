@@ -873,3 +873,43 @@ irishtechnews_adapter:
 techpluto_adapter:
   enabled: true
   url: "https://www.techpluto.com/feed/"
+
+siliconrepublic_startups_adapter:
+  enabled: true
+  url: "https://www.siliconrepublic.com/start-ups/feed"
+
+techforge_media_adapter:
+  enabled: true
+  url: "https://techforgemedia.co.uk/feed/"
+
+sifted_pro_adapter:
+  enabled: true
+  url: "https://sifted.eu/feed/"
+
+foundersguide_adapter:
+  enabled: true
+  url: "https://foundersguide.com/feed/"
+
+startupvalley_news_adapter:
+  enabled: true
+  url: "https://startupvalley.news/feed/"
+
+techbehemoths_blog_adapter:
+  enabled: true
+  url: "https://techbehemoths.com/blog/feed"
+
+startupscoot_adapter:
+  enabled: true
+  url: "https://startupscoot.com/feed/"
+
+seedrs_insights_adapter:
+  enabled: true
+  url: "https://www.seedrs.com/learn/feed"
+
+euvc_insights_adapter:
+  enabled: true
+  url: "https://www.euvc.co/feed/"
+
+startupmag_europe_adapter:
+  enabled: true
+  url: "https://startupmag.eu/feed/"

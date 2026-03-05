@@ -172,6 +172,16 @@ from startup_watch.adapters.eu_startups_news import EuStartupsNewsAdapter
 from startup_watch.adapters.uktechnews import UktechnewsAdapter
 from startup_watch.adapters.irishtechnews import IrishtechnewsAdapter
 from startup_watch.adapters.techpluto import TechplutoAdapter
+from startup_watch.adapters.siliconrepublic_startups import SiliconrepublicStartupsAdapter
+from startup_watch.adapters.techforge_media import TechforgeMediaAdapter
+from startup_watch.adapters.sifted_pro import SiftedProAdapter
+from startup_watch.adapters.foundersguide import FoundersguideAdapter
+from startup_watch.adapters.startupvalley_news import StartupvalleyNewsAdapter
+from startup_watch.adapters.techbehemoths_blog import TechbehemothsBlogAdapter
+from startup_watch.adapters.startupscoot import StartupscootAdapter
+from startup_watch.adapters.seedrs_insights import SeedrsInsightsAdapter
+from startup_watch.adapters.euvc_insights import EuvcInsightsAdapter
+from startup_watch.adapters.startupmag_europe import StartupmagEuropeAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -375,6 +385,16 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         UktechnewsAdapter(config.get("uktechnews_adapter", {})),
         IrishtechnewsAdapter(config.get("irishtechnews_adapter", {})),
         TechplutoAdapter(config.get("techpluto_adapter", {})),
+        SiliconrepublicStartupsAdapter(config.get("siliconrepublic_startups_adapter", {})),
+        TechforgeMediaAdapter(config.get("techforge_media_adapter", {})),
+        SiftedProAdapter(config.get("sifted_pro_adapter", {})),
+        FoundersguideAdapter(config.get("foundersguide_adapter", {})),
+        StartupvalleyNewsAdapter(config.get("startupvalley_news_adapter", {})),
+        TechbehemothsBlogAdapter(config.get("techbehemoths_blog_adapter", {})),
+        StartupscootAdapter(config.get("startupscoot_adapter", {})),
+        SeedrsInsightsAdapter(config.get("seedrs_insights_adapter", {})),
+        EuvcInsightsAdapter(config.get("euvc_insights_adapter", {})),
+        StartupmagEuropeAdapter(config.get("startupmag_europe_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:
