@@ -759,3 +759,43 @@ startupnewsme_adapter:
 middleeastventures_adapter:
   enabled: true
   url: "https://www.mevca.org/feed/"
+
+europeanstartups_adapter:
+  enabled: true
+  url: "https://europeanstartups.co.uk/feed/"
+
+startupobserver_adapter:
+  enabled: true
+  url: "https://startupobserver.com/feed/"
+
+startupsavant_adapter:
+  enabled: true
+  url: "https://startupsavant.com/feed"
+
+techrasa_adapter:
+  enabled: true
+  url: "https://www.techrasa.com/feed/"
+
+techgistafrica_adapter:
+  enabled: true
+  url: "https://techgistafrica.com/feed/"
+
+itnewsafrica_adapter:
+  enabled: true
+  url: "https://www.itnewsafrica.com/feed/"
+
+disfold_blog_adapter:
+  enabled: true
+  url: "https://blog.disfold.com/feed/"
+
+startupradius_adapter:
+  enabled: true
+  url: "https://startupradius.com/feed/"
+
+nextbigwhat_adapter:
+  enabled: true
+  url: "https://nextbigwhat.com/feed/"
+
+techcircle_adapter:
+  enabled: true
+  url: "https://www.techcircle.in/feed"

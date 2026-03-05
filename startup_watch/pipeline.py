@@ -142,6 +142,16 @@ from startup_watch.adapters.dailysocial import DailysocialAdapter
 from startup_watch.adapters.techstartups import TechstartupsAdapter
 from startup_watch.adapters.startupnewsme import StartupnewsmeAdapter
 from startup_watch.adapters.middleeastventures import MiddleeastventuresAdapter
+from startup_watch.adapters.europeanstartups import EuropeanstartupsAdapter
+from startup_watch.adapters.startupobserver import StartupobserverAdapter
+from startup_watch.adapters.startupsavant import StartupsavantAdapter
+from startup_watch.adapters.techrasa import TechrasaAdapter
+from startup_watch.adapters.techgistafrica import TechgistafricaAdapter
+from startup_watch.adapters.itnewsafrica import ItnewsafricaAdapter
+from startup_watch.adapters.disfold_blog import DisfoldBlogAdapter
+from startup_watch.adapters.startupradius import StartupradiusAdapter
+from startup_watch.adapters.nextbigwhat import NextbigwhatAdapter
+from startup_watch.adapters.techcircle import TechcircleAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -315,6 +325,16 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         TechstartupsAdapter(config.get("techstartups_adapter", {})),
         StartupnewsmeAdapter(config.get("startupnewsme_adapter", {})),
         MiddleeastventuresAdapter(config.get("middleeastventures_adapter", {})),
+        EuropeanstartupsAdapter(config.get("europeanstartups_adapter", {})),
+        StartupobserverAdapter(config.get("startupobserver_adapter", {})),
+        StartupsavantAdapter(config.get("startupsavant_adapter", {})),
+        TechrasaAdapter(config.get("techrasa_adapter", {})),
+        TechgistafricaAdapter(config.get("techgistafrica_adapter", {})),
+        ItnewsafricaAdapter(config.get("itnewsafrica_adapter", {})),
+        DisfoldBlogAdapter(config.get("disfold_blog_adapter", {})),
+        StartupradiusAdapter(config.get("startupradius_adapter", {})),
+        NextbigwhatAdapter(config.get("nextbigwhat_adapter", {})),
+        TechcircleAdapter(config.get("techcircle_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:
