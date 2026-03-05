@@ -132,6 +132,16 @@ from startup_watch.adapters.startupnewsasia import StartupnewsasiaAdapter
 from startup_watch.adapters.vietcetera import VietceteraAdapter
 from startup_watch.adapters.bloomingstartup import BloomingstartupAdapter
 from startup_watch.adapters.africanbusiness_tech import AfricanbusinessTechAdapter
+from startup_watch.adapters.menabytes import MenabytesAdapter
+from startup_watch.adapters.magnitt import MagnittAdapter
+from startup_watch.adapters.wadi_mena import WadiMenaAdapter
+from startup_watch.adapters.startupbahrain import StartupbahrainAdapter
+from startup_watch.adapters.techjuice import TechjuiceAdapter
+from startup_watch.adapters.pakwired import PakwiredAdapter
+from startup_watch.adapters.dailysocial import DailysocialAdapter
+from startup_watch.adapters.techstartups import TechstartupsAdapter
+from startup_watch.adapters.startupnewsme import StartupnewsmeAdapter
+from startup_watch.adapters.middleeastventures import MiddleeastventuresAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -295,6 +305,16 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         VietceteraAdapter(config.get("vietcetera_adapter", {})),
         BloomingstartupAdapter(config.get("bloomingstartup_adapter", {})),
         AfricanbusinessTechAdapter(config.get("africanbusiness_tech_adapter", {})),
+        MenabytesAdapter(config.get("menabytes_adapter", {})),
+        MagnittAdapter(config.get("magnitt_adapter", {})),
+        WadiMenaAdapter(config.get("wadi_mena_adapter", {})),
+        StartupbahrainAdapter(config.get("startupbahrain_adapter", {})),
+        TechjuiceAdapter(config.get("techjuice_adapter", {})),
+        PakwiredAdapter(config.get("pakwired_adapter", {})),
+        DailysocialAdapter(config.get("dailysocial_adapter", {})),
+        TechstartupsAdapter(config.get("techstartups_adapter", {})),
+        StartupnewsmeAdapter(config.get("startupnewsme_adapter", {})),
+        MiddleeastventuresAdapter(config.get("middleeastventures_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:

@@ -713,3 +713,43 @@ bloomingstartup_adapter:
 africanbusiness_tech_adapter:
   enabled: true
   url: "https://african.business/category/technology/feed/"
+
+menabytes_adapter:
+  enabled: true
+  url: "https://www.menabytes.com/feed/"
+
+magnitt_adapter:
+  enabled: true
+  url: "https://magnitt.com/news/rss"
+
+wadi_mena_adapter:
+  enabled: true
+  url: "https://www.wamda.com/feed"
+
+startupbahrain_adapter:
+  enabled: true
+  url: "https://startupbahrain.com/feed/"
+
+techjuice_adapter:
+  enabled: true
+  url: "https://www.techjuice.pk/feed/"
+
+pakwired_adapter:
+  enabled: true
+  url: "https://www.pakwired.com/feed/"
+
+dailysocial_adapter:
+  enabled: true
+  url: "https://dailysocial.id/feed/"
+
+techstartups_adapter:
+  enabled: true
+  url: "https://techstartups.com/feed/"
+
+startupnewsme_adapter:
+  enabled: true
+  url: "https://www.startupnewsme.com/feed/"
+
+middleeastventures_adapter:
+  enabled: true
+  url: "https://www.mevca.org/feed/"
