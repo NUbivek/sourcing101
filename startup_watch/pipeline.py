@@ -182,6 +182,16 @@ from startup_watch.adapters.startupscoot import StartupscootAdapter
 from startup_watch.adapters.seedrs_insights import SeedrsInsightsAdapter
 from startup_watch.adapters.euvc_insights import EuvcInsightsAdapter
 from startup_watch.adapters.startupmag_europe import StartupmagEuropeAdapter
+from startup_watch.adapters.vator_startups import VatorStartupsAdapter
+from startup_watch.adapters.startus_insights import StartusInsightsAdapter
+from startup_watch.adapters.tracxn_blog import TracxnBlogAdapter
+from startup_watch.adapters.f6s_news import F6sNewsAdapter
+from startup_watch.adapters.euvc_deals import EuvcDealsAdapter
+from startup_watch.adapters.venturecapitaljournal import VenturecapitaljournalAdapter
+from startup_watch.adapters.privateequitywire_vc import PrivateequitywireVcAdapter
+from startup_watch.adapters.globalventuring import GlobalventuringAdapter
+from startup_watch.adapters.thehumancapital import ThehumancapitalAdapter
+from startup_watch.adapters.startupsatellite import StartupsatelliteAdapter
 from startup_watch.adapters.supplychainbrain import SupplychainbrainAdapter
 from startup_watch.adapters.greenqueen import GreenqueenAdapter
 from startup_watch.adapters.finsmes import FinsmesAdapter
@@ -395,6 +405,16 @@ def collect_signals(config: dict) -> list[StartupSignal]:
         SeedrsInsightsAdapter(config.get("seedrs_insights_adapter", {})),
         EuvcInsightsAdapter(config.get("euvc_insights_adapter", {})),
         StartupmagEuropeAdapter(config.get("startupmag_europe_adapter", {})),
+        VatorStartupsAdapter(config.get("vator_startups_adapter", {})),
+        StartusInsightsAdapter(config.get("startus_insights_adapter", {})),
+        TracxnBlogAdapter(config.get("tracxn_blog_adapter", {})),
+        F6sNewsAdapter(config.get("f6s_news_adapter", {})),
+        EuvcDealsAdapter(config.get("euvc_deals_adapter", {})),
+        VenturecapitaljournalAdapter(config.get("venturecapitaljournal_adapter", {})),
+        PrivateequitywireVcAdapter(config.get("privateequitywire_vc_adapter", {})),
+        GlobalventuringAdapter(config.get("globalventuring_adapter", {})),
+        ThehumancapitalAdapter(config.get("thehumancapital_adapter", {})),
+        StartupsatelliteAdapter(config.get("startupsatellite_adapter", {})),
     ]
     collected: list[StartupSignal] = []
     for adapter in adapters:

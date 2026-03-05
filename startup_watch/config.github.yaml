@@ -913,3 +913,43 @@ euvc_insights_adapter:
 startupmag_europe_adapter:
   enabled: true
   url: "https://startupmag.eu/feed/"
+
+vator_startups_adapter:
+  enabled: true
+  url: "https://vator.tv/news/feed"
+
+startus_insights_adapter:
+  enabled: true
+  url: "https://www.startus-insights.com/innovators-guide/feed/"
+
+tracxn_blog_adapter:
+  enabled: true
+  url: "https://tracxn.com/d/blog/feed/"
+
+f6s_news_adapter:
+  enabled: true
+  url: "https://www.f6s.com/feed"
+
+euvc_deals_adapter:
+  enabled: true
+  url: "https://www.euvc.co/feed"
+
+venturecapitaljournal_adapter:
+  enabled: true
+  url: "https://www.venturecapitaljournal.com/feed/"
+
+privateequitywire_vc_adapter:
+  enabled: true
+  url: "https://www.privateequitywire.co.uk/feed/"
+
+globalventuring_adapter:
+  enabled: true
+  url: "https://globalventuring.com/feed/"
+
+thehumancapital_adapter:
+  enabled: true
+  url: "https://thehumancapitalhub.com/feed/"
+
+startupsatellite_adapter:
+  enabled: true
+  url: "https://startupsatellite.com/feed/"
