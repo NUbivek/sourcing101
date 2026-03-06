@@ -1,0 +1,50 @@
+{
+  "branch": "prep/merge-ready-sourcing101",
+  "files": [
+    {
+      "path": "docs/merge-prep/baseline.md",
+      "changeType": "add",
+      "rationale": "Baseline snapshot for merge planning (branch/head/remotes/layout)."
+    },
+    {
+      "path": "docs/merge-prep/tooling.md",
+      "changeType": "add",
+      "rationale": "Toolchain, env/config, and reproducibility command contract."
+    },
+    {
+      "path": "docs/merge-prep/new-tab-map.md",
+      "changeType": "add",
+      "rationale": "Maps integration-relevant surfaces for Searchbar3 new-tab data flow."
+    },
+    {
+      "path": "docs/merge-prep/conflict-matrix.md",
+      "changeType": "add",
+      "rationale": "Risk matrix with recommended conflict resolution strategies."
+    },
+    {
+      "path": "docs/merge-prep/assumptions-open-questions.md",
+      "changeType": "add",
+      "rationale": "Captures unresolved decisions and orchestration questions."
+    },
+    {
+      "path": "startup_watch/pipeline.py",
+      "changeType": "modify",
+      "rationale": "Formatting-only line wraps to satisfy lint gate; no behavior change."
+    },
+    {
+      "path": "docs/merge-prep/validation-report.md",
+      "changeType": "add",
+      "rationale": "Records lint/test/build/run results and remediation notes."
+    },
+    {
+      "path": "docs/merge-prep/handoff.md",
+      "changeType": "add",
+      "rationale": "Execution-ready handoff instructions for final OpenClaw-led integration."
+    },
+    {
+      "path": "docs/merge-prep/file-manifest.json",
+      "changeType": "add",
+      "rationale": "Machine-readable file-level change manifest for integration automation."
+    }
+  ]
+}
