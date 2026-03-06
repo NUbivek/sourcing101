@@ -262,7 +262,12 @@ def fetch_with_resilience(
     for attempt in range(1, attempts + 1):
         try:
             batch = adapter.fetch()
-            logger.info("adapter=%s signals=%s attempt=%s", adapter.source_name, len(batch), attempt)
+            logger.info(
+                "adapter=%s signals=%s attempt=%s",
+                adapter.source_name,
+                len(batch),
+                attempt,
+            )
             return batch
         except Exception as exc:  # pragma: no cover - defensive guardrail
             logger.warning(
@@ -523,7 +528,12 @@ def collect_signals(config: dict) -> list[StartupSignal]:
     ]
     collected: list[StartupSignal] = []
     for index, adapter in enumerate(adapters):
-        batch = fetch_with_resilience(adapter, logger, retries=retries, backoff_seconds=backoff_seconds)
+        batch = fetch_with_resilience(
+            adapter,
+            logger,
+            retries=retries,
+            backoff_seconds=backoff_seconds,
+        )
         collected.extend(batch)
         if delay_seconds > 0 and index < len(adapters) - 1:
             time.sleep(delay_seconds)
